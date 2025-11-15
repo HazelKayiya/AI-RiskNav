@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>AI Risk Governance Dashboard</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="dashboard">
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-logo">
+          <!-- E–S–Ec / AI Risk Governance logo -->
+          <svg viewBox="0 0 260 90" aria-hidden="true">
+            <defs>
+              <linearGradient id="ringGradient" x1="0%" y1="100%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#59abf9" />
+                <stop offset="100%" stop-color="#8a2be2" />
+              </linearGradient>
+            </defs>
+            <!-- Dashed arc -->
+            <path
+              d="M30 75 Q130 15 230 75"
+              fill="none"
+              stroke="url(#ringGradient)"
+              stroke-width="3"
+              stroke-dasharray="10 8"
+              stroke-linecap="round"
+            />
+            <!-- Environmental circle -->
+            <circle cx="60" cy="55" r="24" fill="none" stroke="#47d45a" stroke-width="3" />
+            <path
+              d="M52 63c6-6 9-11 11-17 3 4 5 7 9 9"
+              fill="none"
+              stroke="#2e8b57"
+              stroke-width="2.2"
+              stroke-linecap="round"
+            />
+            <!-- Social circle -->
+            <circle cx="130" cy="55" r="24" fill="none" stroke="#59abf9" stroke-width="3" />
+            <circle cx="120" cy="48" r="4" fill="none" stroke="#3a7bd5" stroke-width="2" />
+            <circle cx="140" cy="48" r="4" fill="none" stroke="#3a7bd5" stroke-width="2" />
+            <circle cx="130" cy="62" r="4" fill="none" stroke="#3a7bd5" stroke-width="2" />
+            <line x1="124" y1="52" x2="128" y2="58" stroke="#3a7bd5" stroke-width="2" />
+            <line x1="136" y1="52" x2="132" y2="58" stroke="#3a7bd5" stroke-width="2" />
+            <!-- Economic circle -->
+            <circle cx="200" cy="55" r="24" fill="none" stroke="#facd5a" stroke-width="3" />
+            <polyline
+              points="188,63 193,57 198,59 207,50"
+              fill="none"
+              stroke="#f0a700"
+              stroke-width="2.2"
+              stroke-linecap="round"
+            />
+            <line x1="188" y1="66" x2="212" y2="66" stroke="#f0a700" stroke-width="2" />
+            <circle cx="206" cy="63" r="3" fill="none" stroke="#f0a700" stroke-width="2" />
+          </svg>
+        </div>
+        <div class="brand-text">
+          <div class="brand-title">AI Risk</div>
+          <div class="brand-name">Governance Hub</div>
+        </div>
+      </div>
+
+      <div class="sidebar-subtitle">
+        Focus: AI, Data, ESG, Accountability
+      </div>
+
+      <nav class="nav" aria-label="Primary navigation">
+        <div class="nav-item active" data-section="overview">
+          <span class="icon">📊</span>
+          <span class="nav-label">Overview</span>
+          <span class="nav-tag">Board</span>
+        </div>
+        <div class="nav-item" data-section="inventory">
+          <span class="icon">📚</span>
+          <span class="nav-label">AI Inventory</span>
+        </div>
+        <div class="nav-item" data-section="esec">
+          <span class="icon">🟢</span>
+          <span class="nav-label">E–S–Ec Lens</span>
+        </div>
+        <div class="nav-item" data-section="risk">
+          <span class="icon">⚖️</span>
+          <span class="nav-label">Risk &amp; Controls</span>
+        </div>
+        <div class="nav-item" data-section="learning">
+          <span class="icon">🎓</span>
+          <span class="nav-label">Educational Mode</span>
+        </div>
+        <div class="nav-item" data-section="reports">
+          <span class="icon">📁</span>
+          <span class="nav-label">Briefing Pack</span>
+        </div>
+      </nav>
+
+      <div class="legend">
+        <div class="legend-item"><span class="dot-es"></span>Env</div>
+        <div class="legend-item"><span class="dot-ss"></span>Social</div>
+        <div class="legend-item"><span class="dot-ec"></span>Economic</div>
+      </div>
+
+      <div class="sidebar-footer">
+        Prototype – Illustrative data only
+      </div>
+    </aside>
+
+    <!-- MAIN -->
+    <main class="main">
+      <!-- HEADER -->
+      <header class="main-header">
+        <div class="title-block">
+          <h1>AI Risk Governance Dashboard</h1>
+          <p>
+            Integrated view of AI risk, accountability, and Environmental, Social, Economic impacts for board-level decision-making.
+          </p>
+        </div>
+        <div class="controls">
+          <div class="select">
+            <span>Organisation:</span>
+            <strong>Example Group plc</strong>
+          </div>
+          <div class="select">
+            <span>Board Lens:</span>
+            <strong>AI &amp; Emerging Tech</strong>
+          </div>
+          <div class="pill">
+            Today:
+            <span id="todayLabel"></span>
+          </div>
+          <button class="edu-toggle" id="eduToggle" type="button" aria-pressed="false">
+            <span class="icon">🎓</span>
+            Educational Mode
+          </button>
+          <div class="pill alert-pill" id="criticalPill">
+            Critical: 0 items flagged
+          </div>
+        </div>
+      </header>
+
+      <!-- GRID -->
+      <section class="grid">
+
+        <!-- KPI STRIP -->
+        <div class="card card-kpis" id="kpiCard">
+          <div class="kpi">
+            <div class="kpi-label">AI systems in scope</div>
+            <div class="kpi-value" id="kpiSystems">0</div>
+            <div class="kpi-tag kpi-tag-soc">Inventory mapped</div>
+          </div>
+          <div class="kpi">
+            <div class="kpi-label">High-risk AI uses</div>
+            <div class="kpi-value" id="kpiHighRisk">0</div>
+            <div class="kpi-tag kpi-tag-risk">Board attention</div>
+          </div>
+          <div class="kpi">
+            <div class="kpi-label">Policy alignment</div>
+            <div class="kpi-value" id="kpiAligned">0%</div>
+            <div class="kpi-tag kpi-tag-env">Aligned to policy</div>
+          </div>
+          <div class="kpi">
+            <div class="kpi-label">E–S–Ec status</div>
+            <div class="kpi-value" id="kpiEsEcStatus">Loading...</div>
+            <div class="kpi-tag kpi-tag-eco">Composite lens</div>
+          </div>
+        </div>
+
+        <!-- E–S–Ec LENS (AGGREGATE + SIM) -->
+        <div class="card card-esec" id="esecCard">
+          <div class="card-title">E–S–Ec Lens</div>
+          <div class="card-subtitle">
+            View portfolio balance or simulate a single AI use case across Environmental, Social, and Economic dimensions.
+          </div>
+
+          <!-- Aggregated indicators -->
+          <div class="esec-columns">
+            <div class="esec-item">
+              <div class="esec-label es">Environmental</div>
+              <div class="esec-score" id="envScoreText"></div>
+              <div class="esec-note" id="envNote"></div>
+            </div>
+            <div class="esec-item">
+              <div class="esec-label ss">Social</div>
+              <div class="esec-score" id="socScoreText"></div>
+              <div class="esec-note" id="socNote"></div>
+            </div>
+            <div class="esec-item">
+              <div class="esec-label ec">Economic</div>
+              <div class="esec-score" id="ecoScoreText"></div>
+              <div class="esec-note" id="ecoNote"></div>
+            </div>
+          </div>
+
+          <!-- Lens selector -->
+          <div class="esec-lens">
+            <div class="esec-lens-header">
+              <div class="esec-lens-title">Lens focus</div>
+              <div class="esec-lens-pills">
+                <button class="lens-pill active" data-lens="all">All</button>
+                <button class="lens-pill" data-lens="env">Env</button>
+                <button class="lens-pill" data-lens="soc">Social</button>
+                <button class="lens-pill" data-lens="eco">Economic</button>
+              </div>
+            </div>
+            <div class="esec-lens-note" id="lensNote">
+              Aggregate balance of Environmental, Social and Economic performance across the AI portfolio.
+            </div>
+            <div class="esec-lens-bars" id="lensBars"></div>
+          </div>
+
+          <!-- Scenario Simulator -->
+          <div class="esec-sim">
+            <div class="esec-sim-title">Scenario simulator</div>
+            <div class="esec-sim-sub">
+              Adjust the inputs to simulate one AI system and see its indicative E–S–Ec risk profile and governance prompts.
+            </div>
+
+            <div class="esec-sim-grid">
+              <div class="esec-sim-field">
+                <label for="simCompute">Compute intensity / data centre load</label>
+                <input type="range" id="simCompute" min="1" max="5" value="3" />
+                <div class="esec-sim-value">Level: <span id="simComputeVal">3</span></div>
+              </div>
+              <div class="esec-sim-field">
+                <label for="simRights">Impact on individuals / rights risk</label>
+                <input type="range" id="simRights" min="1" max="5" value="3" />
+                <div class="esec-sim-value">Level: <span id="simRightsVal">3</span></div>
+              </div>
+              <div class="esec-sim-field">
+                <label for="simDependency">Business dependency / criticality</label>
+                <input type="range" id="simDependency" min="1" max="5" value="3" />
+                <div class="esec-sim-value">Level: <span id="simDependencyVal">3</span></div>
+              </div>
+            </div>
+
+            <div class="esec-sim-flags">
+              <label><input type="checkbox" id="simThirdParty" /> Third-party / cross-border service</label>
+              <label><input type="checkbox" id="simPolicyGap" /> Known policy / control gaps</label>
+              <label><input type="checkbox" id="simHighImpact" /> Impacts essential services / vulnerable groups</label>
+            </div>
+
+            <div class="esec-sim-output">
+              <div class="sim-score env" id="simEnvScore">Env: 3.0 / 5</div>
+              <div class="sim-score soc" id="simSocScore">Social: 3.0 / 5</div>
+              <div class="sim-score eco" id="simEcoScore">Economic: 3.0 / 5</div>
+            </div>
+
+            <div class="esec-bars">
+              <div class="esec-bar-row">
+                <span class="esec-bar-label">Environmental impact</span>
+                <div class="esec-bar-track"><div class="esec-bar-fill env" id="envBar"></div></div>
+              </div>
+              <div class="esec-bar-row">
+                <span class="esec-bar-label">Social impact</span>
+                <div class="esec-bar-track"><div class="esec-bar-fill soc" id="socBar"></div></div>
+              </div>
+              <div class="esec-bar-row">
+                <span class="esec-bar-label">Economic value &amp; dependency</span>
+                <div class="esec-bar-track"><div class="esec-bar-fill eco" id="ecoBar"></div></div>
+              </div>
+            </div>
+
+            <div class="esec-summary-panel">
+              <div class="summary-line" id="simCategory"></div>
+              <div class="summary-line" id="simRegulatory"></div>
+              <div class="summary-line" id="simBoardPrompt"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- PRIORITY ALERTS -->
+        <div class="card card-alerts" id="alertsCard">
+          <div class="card-title">Priority Alerts for the Board</div>
+          <div class="card-subtitle">
+            Issues with potential regulatory, ethical, or strategic implications.
+          </div>
+          <div class="alert-list" id="alertList"></div>
+        </div>
+
+        <!-- RISK & CONTROLS PANEL -->
+        <div class="card card-risk-controls" id="riskControlsCard">
+          <div class="card-title">Risk &amp; Controls Overview</div>
+          <div class="card-subtitle">
+            Aggregated view of AI governance domains, control maturity, residual risk, mapped to AI Act, NIST AI RMF, ISO standards and E–S–Ec.
+          </div>
+
+          <div class="risk-controls-filters">
+            <label class="pill pill-inline">
+              <input type="checkbox" id="riskHighOnly" />
+              Show only High / Critical residual risk
+            </label>
+            <select id="riskFrameworkFilter" class="pill pill-select">
+              <option value="">Framework: All</option>
+              <option value="AI Act">EU AI Act</option>
+              <option value="NIST">NIST AI RMF</option>
+              <option value="ISO 42001">ISO 42001</option>
+              <option value="ISO 27001">ISO 27001</option>
+            </select>
+            <select id="riskEsEcFilter" class="pill pill-select">
+              <option value="">Lens: All</option>
+              <option value="Env">Env</option>
+              <option value="Social">Social</option>
+              <option value="Economic">Economic</option>
+            </select>
+          </div>
+
+          <div class="risk-list" id="riskList"></div>
+          <div class="risk-summary" id="riskSummaryText"></div>
+        </div>
+
+        <!-- EDUCATIONAL MODE PANEL -->
+        <div class="card card-edu" id="eduCard">
+          <div class="card-title">Educational Mode</div>
+          <div class="card-subtitle">
+            When enabled, walks through how each panel links to duties, regulation, and E–S–Ec trade-offs using live examples.
+          </div>
+          <div class="edu-content" id="eduContent"></div>
+        </div>
+
+        <!-- BOARD NARRATIVE SNAPSHOT -->
+        <div class="card card-narrative" id="narrativeCard">
+          <div class="card-title">Board Narrative Snapshot</div>
+          <div class="narrative-text" id="narrativeObservation"></div>
+          <div class="narrative-text" id="narrativeImplication"></div>
+          <div class="narrative-text" id="narrativeAction"></div>
+        </div>
+
+        <!-- AI INVENTORY LOG -->
+        <div class="card card-inventory" id="inventoryCard">
+          <div class="card-title">AI Systems Inventory</div>
+          <div class="card-subtitle">
+            Operational register of AI systems with risk tier, regulatory exposure, and E–S–Ec alignment.
+          </div>
+
+          <div class="inventory-controls">
+            <input
+              type="text"
+              id="inventorySearch"
+              class="inventory-search"
+              placeholder="Search by name, owner, category, flag or exposure"
+              aria-label="Search AI systems"
+            />
+            <select id="filterRisk" class="inventory-filter" aria-label="Filter by risk tier">
+              <option value="">Risk: All</option>
+              <option value="Very High">Very High</option>
+              <option value="High">High</option>
+              <option value="Medium">Medium</option>
+              <option value="Low">Low</option>
+            </select>
+            <select id="filterOwner" class="inventory-filter" aria-label="Filter by owner">
+              <option value="">Owner: All</option>
+            </select>
+            <select id="filterPolicy" class="inventory-filter" aria-label="Filter by policy alignment">
+              <option value="">Policy: All</option>
+              <option value="aligned">Aligned</option>
+              <option value="gap">Policy gaps</option>
+            </select>
+          </div>
+
+          <div class="inventory-table-wrapper">
+            <table class="inventory-table" aria-label="AI systems inventory table">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Owner</th>
+                  <th>Category</th>
+                  <th>Risk</th>
+                  <th>Reg/Exposure</th>
+                  <th>E–S–Ec</th>
+                  <th>Policy</th>
+                </tr>
+              </thead>
+              <tbody id="inventoryTableBody"></tbody>
+            </table>
+          </div>
+
+          <div class="inventory-note" id="inventorySummary"></div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
