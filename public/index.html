@@ -1,387 +1,2216 @@
 <!DOCTYPE html>
 <html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>AI RiskNav Integrated V7.0</title>
+    <link rel="stylesheet" href="./style.css">
+
+  </head>
+    
+  <body>
+  <!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>AI RiskNav Integrated V7.0</title>
+    <link rel="stylesheet" href="./style.css">
+
+  </head>
+    
+  <body>
+  <!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>AI RiskNav Integrated V7</title>
+    <link rel="stylesheet" href="./style.css">
+
+  </head>
+    
+  <body>
+  <!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>AI Risk Governance Dashboard</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="./style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI RiskNav – Integrated Dashboard</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="dashboard">
-    <!-- SIDEBAR -->
-    <aside class="sidebar">
-      <div class="brand">
-        <div class="brand-logo">
-          <!-- E–S–Ec / AI Risk Governance logo -->
-          <svg viewBox="0 0 260 90" aria-hidden="true">
-            <defs>
-              <linearGradient id="ringGradient" x1="0%" y1="100%" x2="100%" y2="0%">
-                <stop offset="0%" stop-color="#59abf9" />
-                <stop offset="100%" stop-color="#8a2be2" />
-              </linearGradient>
-            </defs>
-            <!-- Dashed arc -->
-            <path
-              d="M30 75 Q130 15 230 75"
-              fill="none"
-              stroke="url(#ringGradient)"
-              stroke-width="3"
-              stroke-dasharray="10 8"
-              stroke-linecap="round"
-            />
-            <!-- Environmental circle -->
-            <circle cx="60" cy="55" r="24" fill="none" stroke="#47d45a" stroke-width="3" />
-            <path
-              d="M52 63c6-6 9-11 11-17 3 4 5 7 9 9"
-              fill="none"
-              stroke="#2e8b57"
-              stroke-width="2.2"
-              stroke-linecap="round"
-            />
-            <!-- Social circle -->
-            <circle cx="130" cy="55" r="24" fill="none" stroke="#59abf9" stroke-width="3" />
-            <circle cx="120" cy="48" r="4" fill="none" stroke="#3a7bd5" stroke-width="2" />
-            <circle cx="140" cy="48" r="4" fill="none" stroke="#3a7bd5" stroke-width="2" />
-            <circle cx="130" cy="62" r="4" fill="none" stroke="#3a7bd5" stroke-width="2" />
-            <line x1="124" y1="52" x2="128" y2="58" stroke="#3a7bd5" stroke-width="2" />
-            <line x1="136" y1="52" x2="132" y2="58" stroke="#3a7bd5" stroke-width="2" />
-            <!-- Economic circle -->
-            <circle cx="200" cy="55" r="24" fill="none" stroke="#facd5a" stroke-width="3" />
-            <polyline
-              points="188,63 193,57 198,59 207,50"
-              fill="none"
-              stroke="#f0a700"
-              stroke-width="2.2"
-              stroke-linecap="round"
-            />
-            <line x1="188" y1="66" x2="212" y2="66" stroke="#f0a700" stroke-width="2" />
-            <circle cx="206" cy="63" r="3" fill="none" stroke="#f0a700" stroke-width="2" />
-          </svg>
-        </div>
-        <div class="brand-text">
-          <div class="brand-title">AI Risk</div>
-          <div class="brand-name">Governance Hub</div>
+  <!-- Header (updated to match the Integrated V5 style) -->
+  <header class="app-header" role="banner">
+    <div class="header-container">
+      <div class="app-brand">
+        <button class="brand-home" type="button" onclick="showView('overview')" aria-label="Go to Portfolio Overview">
+          <span class="app-mark" aria-hidden="true">AI</span>
+        </button>
+        <div class="app-titles">
+          <p class="app-name">AI RiskNav</p>
+          <p class="app-tagline">E–S–Ec Digital Risk Governance Dashboard</p>
         </div>
       </div>
 
-      <div class="sidebar-subtitle">
-        Focus: AI, Data, ESG, Accountability
-      </div>
-
-      <nav class="nav" aria-label="Primary navigation">
-        <div class="nav-item active" data-section="overview">
-          <span class="icon">📊</span>
-          <span class="nav-label">Overview</span>
-          <span class="nav-tag">Board</span>
-        </div>
-        <div class="nav-item" data-section="inventory">
-          <span class="icon">📚</span>
-          <span class="nav-label">AI Inventory</span>
-        </div>
-        <div class="nav-item" data-section="esec">
-          <span class="icon">🟢</span>
-          <span class="nav-label">E–S–Ec Lens</span>
-        </div>
-        <div class="nav-item" data-section="risk">
-          <span class="icon">⚖️</span>
-          <span class="nav-label">Risk &amp; Controls</span>
-        </div>
-        <div class="nav-item" data-section="learning">
-          <span class="icon">🎓</span>
-          <span class="nav-label">Educational Mode</span>
-        </div>
-        <div class="nav-item" data-section="reports">
-          <span class="icon">📁</span>
-          <span class="nav-label">Briefing Pack</span>
-        </div>
+      <nav class="primary-nav" aria-label="Primary navigation">
+        <ul class="nav-list" role="list">
+          <li><button class="nav-btn" data-view="overview" type="button" onclick="showView('overview')">Overview</button></li>
+          <li><button class="nav-btn" data-view="inventory" type="button" onclick="showView('inventory')">AI Inventory</button></li>
+          <li><button class="nav-btn" data-view="esec" type="button" onclick="showView('esec')">E–S–Ec Lens</button></li>
+          <li><button class="nav-btn" data-view="risk" type="button" onclick="showView('risk')">Risk &amp; Controls</button></li>
+          <li><button class="nav-btn" data-view="education" type="button" onclick="showView('education')">Education</button></li>
+        </ul>
       </nav>
 
-      <div class="legend">
-        <div class="legend-item"><span class="dot-es"></span>Env</div>
-        <div class="legend-item"><span class="dot-ss"></span>Social</div>
-        <div class="legend-item"><span class="dot-ec"></span>Economic</div>
+      <div class="app-meta">
+        <span aria-live="polite" class="app-status" id="appStatus">Ready</span>
+        <span class="header-date" id="currentDate"></span>
       </div>
+    </div>
+  </header>
 
-      <div class="sidebar-footer">
-        Prototype – Illustrative data only
-      </div>
-    </aside>
-
-    <!-- MAIN -->
-    <main class="main">
-      <!-- HEADER -->
-      <header class="main-header">
-        <div class="title-block">
-          <h1>AI Risk Governance Dashboard</h1>
-          <p>
-            Integrated view of AI risk, accountability, and Environmental, Social, Economic impacts for board-level decision-making.
-          </p>
+  <!-- Main Content -->
+  <main class="app-main">
+    <!-- Portfolio Overview View -->
+    <div id="view-overview" class="view-content">
+      <div class="view-inner">
+        <div class="view-header">
+          <h2 class="view-title">Portfolio Overview</h2>
+          <p class="view-description">Board-level AI oversight across Environmental, Social and Economic dimensions.</p>
         </div>
-        <div class="controls">
-          <div class="select">
-            <span>Organisation:</span>
-            <strong>Example Group plc</strong>
-          </div>
-          <div class="select">
-            <span>Board Lens:</span>
-            <strong>AI &amp; Emerging Tech</strong>
-          </div>
-          <div class="pill">
-            Today:
-            <span id="todayLabel"></span>
-          </div>
-          <button class="edu-toggle" id="eduToggle" type="button" aria-pressed="false">
-            <span class="icon">🎓</span>
-            Educational Mode
+
+        <!-- Portfolio Changes Alert -->
+        <div class="portfolio-alerts">
+          <div class="alert-item">🚨 <strong>1 major incident</strong> this quarter</div>
+          <div class="alert-item">⚠️ <strong>3 systems</strong> exceed risk thresholds</div>
+          <div class="alert-item">📘 <strong>2 systems</strong> missing updated ISO/IEC 42001 evidence</div>
+          <div class="alert-item">🌍 <strong>E–S–Ec imbalance:</strong> Environmental weight highest (survey-backed)</div>
+        </div>
+
+        <!-- Quadrant Buttons -->
+        <div class="quadrant-buttons">
+          <button onclick="toggleQuadrant('attention')" class="quadrant-btn" data-quadrant="attention">
+            <span class="quadrant-icon">⚠️</span> Attention
           </button>
-          <div class="pill alert-pill" id="criticalPill">
-            Critical: 0 items flagged
-          </div>
-        </div>
-      </header>
-
-      <!-- GRID -->
-      <section class="grid">
-
-        <!-- KPI STRIP -->
-        <div class="card card-kpis" id="kpiCard">
-          <div class="kpi">
-            <div class="kpi-label">AI systems in scope</div>
-            <div class="kpi-value" id="kpiSystems">0</div>
-            <div class="kpi-tag kpi-tag-soc">Inventory mapped</div>
-          </div>
-          <div class="kpi">
-            <div class="kpi-label">High-risk AI uses</div>
-            <div class="kpi-value" id="kpiHighRisk">0</div>
-            <div class="kpi-tag kpi-tag-risk">Board attention</div>
-          </div>
-          <div class="kpi">
-            <div class="kpi-label">Policy alignment</div>
-            <div class="kpi-value" id="kpiAligned">0%</div>
-            <div class="kpi-tag kpi-tag-env">Aligned to policy</div>
-          </div>
-          <div class="kpi">
-            <div class="kpi-label">E–S–Ec status</div>
-            <div class="kpi-value" id="kpiEsEcStatus">Loading...</div>
-            <div class="kpi-tag kpi-tag-eco">Composite lens</div>
-          </div>
+          <button onclick="toggleQuadrant('pipeline')" class="quadrant-btn" data-quadrant="pipeline">
+            <span class="quadrant-icon">📊</span> Pipeline
+          </button>
+          <button onclick="toggleQuadrant('incidents')" class="quadrant-btn" data-quadrant="incidents">
+            <span class="quadrant-icon">🚨</span> Incidents
+          </button>
+          <button onclick="toggleQuadrant('radar')" class="quadrant-btn" data-quadrant="radar">
+            <span class="quadrant-icon">📋</span> Regulatory
+          </button>
+          <button onclick="resetQuadrants()" class="quadrant-btn quadrant-btn-reset">
+            Reset
+          </button>
         </div>
 
-        <!-- E–S–Ec LENS (AGGREGATE + SIM) -->
-        <div class="card card-esec" id="esecCard">
-          <div class="card-title">E–S–Ec Lens</div>
-          <div class="card-subtitle">
-            View portfolio balance or simulate a single AI use case across Environmental, Social, and Economic dimensions.
+        <!-- Quadrant Content Display -->
+        <div id="quadrant-content" class="quadrant-content-panel"></div>
+
+        <!-- Summary Cards -->
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-label">Total AI Systems</div>
+            <div class="stat-value stat-blue" id="stat-total">10</div>
           </div>
-
-          <!-- Aggregated indicators -->
-          <div class="esec-columns">
-            <div class="esec-item">
-              <div class="esec-label es">Environmental</div>
-              <div class="esec-score" id="envScoreText"></div>
-              <div class="esec-note" id="envNote"></div>
-            </div>
-            <div class="esec-item">
-              <div class="esec-label ss">Social</div>
-              <div class="esec-score" id="socScoreText"></div>
-              <div class="esec-note" id="socNote"></div>
-            </div>
-            <div class="esec-item">
-              <div class="esec-label ec">Economic</div>
-              <div class="esec-score" id="ecoScoreText"></div>
-              <div class="esec-note" id="ecoNote"></div>
-            </div>
+          <div class="stat-card">
+            <div class="stat-label">High-Risk Systems</div>
+            <div class="stat-value stat-red" id="stat-high">4</div>
           </div>
-
-          <!-- Lens selector -->
-          <div class="esec-lens">
-            <div class="esec-lens-header">
-              <div class="esec-lens-title">Lens focus</div>
-              <div class="esec-lens-pills">
-                <button class="lens-pill active" data-lens="all">All</button>
-                <button class="lens-pill" data-lens="env">Env</button>
-                <button class="lens-pill" data-lens="soc">Social</button>
-                <button class="lens-pill" data-lens="eco">Economic</button>
-              </div>
-            </div>
-            <div class="esec-lens-note" id="lensNote">
-              Aggregate balance of Environmental, Social and Economic performance across the AI portfolio.
-            </div>
-            <div class="esec-lens-bars" id="lensBars"></div>
+          <div class="stat-card">
+            <div class="stat-label">In Pilot/Assessment</div>
+            <div class="stat-value stat-amber" id="stat-pilot">3</div>
           </div>
-
-          <!-- Scenario Simulator -->
-          <div class="esec-sim">
-            <div class="esec-sim-title">Scenario simulator</div>
-            <div class="esec-sim-sub">
-              Adjust the inputs to simulate one AI system and see its indicative E–S–Ec risk profile and governance prompts.
-            </div>
-
-            <div class="esec-sim-grid">
-              <div class="esec-sim-field">
-                <label for="simCompute">Compute intensity / data centre load</label>
-                <input type="range" id="simCompute" min="1" max="5" value="3" />
-                <div class="esec-sim-value">Level: <span id="simComputeVal">3</span></div>
-              </div>
-              <div class="esec-sim-field">
-                <label for="simRights">Impact on individuals / rights risk</label>
-                <input type="range" id="simRights" min="1" max="5" value="3" />
-                <div class="esec-sim-value">Level: <span id="simRightsVal">3</span></div>
-              </div>
-              <div class="esec-sim-field">
-                <label for="simDependency">Business dependency / criticality</label>
-                <input type="range" id="simDependency" min="1" max="5" value="3" />
-                <div class="esec-sim-value">Level: <span id="simDependencyVal">3</span></div>
-              </div>
-            </div>
-
-            <div class="esec-sim-flags">
-              <label><input type="checkbox" id="simThirdParty" /> Third-party / cross-border service</label>
-              <label><input type="checkbox" id="simPolicyGap" /> Known policy / control gaps</label>
-              <label><input type="checkbox" id="simHighImpact" /> Impacts essential services / vulnerable groups</label>
-            </div>
-
-            <div class="esec-sim-output">
-              <div class="sim-score env" id="simEnvScore">Env: 3.0 / 5</div>
-              <div class="sim-score soc" id="simSocScore">Social: 3.0 / 5</div>
-              <div class="sim-score eco" id="simEcoScore">Economic: 3.0 / 5</div>
-            </div>
-
-            <div class="esec-bars">
-              <div class="esec-bar-row">
-                <span class="esec-bar-label">Environmental impact</span>
-                <div class="esec-bar-track"><div class="esec-bar-fill env" id="envBar"></div></div>
-              </div>
-              <div class="esec-bar-row">
-                <span class="esec-bar-label">Social impact</span>
-                <div class="esec-bar-track"><div class="esec-bar-fill soc" id="socBar"></div></div>
-              </div>
-              <div class="esec-bar-row">
-                <span class="esec-bar-label">Economic value &amp; dependency</span>
-                <div class="esec-bar-track"><div class="esec-bar-fill eco" id="ecoBar"></div></div>
-              </div>
-            </div>
-
-            <div class="esec-summary-panel">
-              <div class="summary-line" id="simCategory"></div>
-              <div class="summary-line" id="simRegulatory"></div>
-              <div class="summary-line" id="simBoardPrompt"></div>
-            </div>
+          <div class="stat-card">
+            <div class="stat-label">Retired / Legacy</div>
+            <div class="stat-value stat-grey">1</div>
           </div>
         </div>
 
-        <!-- PRIORITY ALERTS -->
-        <div class="card card-alerts" id="alertsCard">
-          <div class="card-title">Priority Alerts for the Board</div>
-          <div class="card-subtitle">
-            Issues with potential regulatory, ethical, or strategic implications.
+        <!-- E-S-Ec Gauges -->
+        <div class="gauges-card">
+          <h3 class="card-title">E–S–Ec Portfolio Summary</h3>
+          <div class="gauges-grid">
+            <div class="gauge-item">
+              <div class="gauge-label">Environmental</div>
+              <div class="gauge-wrapper">
+                <svg class="gauge-svg" viewBox="0 0 128 128">
+                  <circle cx="64" cy="64" r="56" fill="none" stroke="#e5e7eb" stroke-width="12"></circle>
+                  <circle cx="64" cy="64" r="56" fill="none" stroke="#007f3b" stroke-width="12" 
+                          class="gauge-fill" id="gauge-env" stroke-dasharray="211 352" 
+                          stroke-linecap="round" transform="rotate(-90 64 64)"></circle>
+                </svg>
+                <div class="gauge-center">
+                  <div class="gauge-score" id="score-env">60</div>
+                  <div class="gauge-unit">/100</div>
+                </div>
+              </div>
+              <p class="gauge-desc">Lifecycle and infrastructure impacts</p>
+            </div>
+
+            <div class="gauge-item">
+              <div class="gauge-label">Social</div>
+              <div class="gauge-wrapper">
+                <svg class="gauge-svg" viewBox="0 0 128 128">
+                  <circle cx="64" cy="64" r="56" fill="none" stroke="#e5e7eb" stroke-width="12"></circle>
+                  <circle cx="64" cy="64" r="56" fill="none" stroke="#1d70b8" stroke-width="12" 
+                          class="gauge-fill" id="gauge-soc" stroke-dasharray="246 352" 
+                          stroke-linecap="round" transform="rotate(-90 64 64)"></circle>
+                </svg>
+                <div class="gauge-center">
+                  <div class="gauge-score" id="score-soc">70</div>
+                  <div class="gauge-unit">/100</div>
+                </div>
+              </div>
+              <p class="gauge-desc">Fairness, inclusion, workforce impacts</p>
+            </div>
+
+            <div class="gauge-item">
+              <div class="gauge-label">Economic</div>
+              <div class="gauge-wrapper">
+                <svg class="gauge-svg" viewBox="0 0 128 128">
+                  <circle cx="64" cy="64" r="56" fill="none" stroke="#e5e7eb" stroke-width="12"></circle>
+                  <circle cx="64" cy="64" r="56" fill="none" stroke="#f39c12" stroke-width="12" 
+                          class="gauge-fill" id="gauge-eco" stroke-dasharray="282 352" 
+                          stroke-linecap="round" transform="rotate(-90 64 64)"></circle>
+                </svg>
+                <div class="gauge-center">
+                  <div class="gauge-score" id="score-eco">80</div>
+                  <div class="gauge-unit">/100</div>
+                </div>
+              </div>
+              <p class="gauge-desc">Value, resilience and downside risk</p>
+            </div>
           </div>
-          <div class="alert-list" id="alertList"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- AI Inventory View -->
+    <div id="view-inventory" class="view-content view-hidden">
+      <div class="view-inner">
+        <div class="view-header">
+          <h2 class="view-title">AI System Inventory</h2>
+          <p class="view-description">Structured register of AI and automated decision systems, aligned with AI governance, sustainability, and risk / corporate governance frameworks.</p>
         </div>
 
-        <!-- RISK & CONTROLS PANEL -->
-        <div class="card card-risk-controls" id="riskControlsCard">
-          <div class="card-title">Risk &amp; Controls Overview</div>
-          <div class="card-subtitle">
-            Aggregated view of AI governance domains, control maturity, residual risk, mapped to AI Act, NIST AI RMF, ISO standards and E–S–Ec.
+        <!-- Inventory Summary Stats -->
+        <div class="intro-stats">
+          <div class="stat-pill">
+            <span class="stat-label">Total systems</span>
+            <span id="stat-total-inv" class="stat-value">10</span>
           </div>
-
-          <div class="risk-controls-filters">
-            <label class="pill pill-inline">
-              <input type="checkbox" id="riskHighOnly" />
-              Show only High / Critical residual risk
-            </label>
-            <select id="riskFrameworkFilter" class="pill pill-select">
-              <option value="">Framework: All</option>
-              <option value="AI Act">EU AI Act</option>
-              <option value="NIST">NIST AI RMF</option>
-              <option value="ISO 42001">ISO 42001</option>
-              <option value="ISO 27001">ISO 27001</option>
-            </select>
-            <select id="riskEsEcFilter" class="pill pill-select">
-              <option value="">Lens: All</option>
-              <option value="Env">Env</option>
-              <option value="Social">Social</option>
-              <option value="Economic">Economic</option>
-            </select>
+          <div class="stat-pill">
+            <span class="stat-label">High-risk</span>
+            <span id="stat-high-inv" class="stat-value">4</span>
           </div>
-
-          <div class="risk-list" id="riskList"></div>
-          <div class="risk-summary" id="riskSummaryText"></div>
+          <div class="stat-pill">
+            <span class="stat-label">In pilot / assessment</span>
+            <span id="stat-review-inv" class="stat-value">3</span>
+          </div>
         </div>
 
-        <!-- EDUCATIONAL MODE PANEL -->
-        <div class="card card-edu" id="eduCard">
-          <div class="card-title">Educational Mode</div>
-          <div class="card-subtitle">
-            When enabled, walks through how each panel links to duties, regulation, and E–S–Ec trade-offs using live examples.
-          </div>
-          <div class="edu-content" id="eduContent"></div>
-        </div>
-
-        <!-- BOARD NARRATIVE SNAPSHOT -->
-        <div class="card card-narrative" id="narrativeCard">
-          <div class="card-title">Board Narrative Snapshot</div>
-          <div class="narrative-text" id="narrativeObservation"></div>
-          <div class="narrative-text" id="narrativeImplication"></div>
-          <div class="narrative-text" id="narrativeAction"></div>
-        </div>
-
-        <!-- AI INVENTORY LOG -->
-        <div class="card card-inventory" id="inventoryCard">
-          <div class="card-title">AI Systems Inventory</div>
-          <div class="card-subtitle">
-            Operational register of AI systems with risk tier, regulatory exposure, and E–S–Ec alignment.
-          </div>
-
-          <div class="inventory-controls">
+        <!-- Filters -->
+        <div class="inventory-controls">
+          <div class="control-group">
+            <label for="search-input">Search</label>
             <input
+              id="search-input"
               type="text"
-              id="inventorySearch"
-              class="inventory-search"
-              placeholder="Search by name, owner, category, flag or exposure"
-              aria-label="Search AI systems"
+              placeholder="Search by system name, use case, owner, or ID…"
             />
-            <select id="filterRisk" class="inventory-filter" aria-label="Filter by risk tier">
-              <option value="">Risk: All</option>
-              <option value="Very High">Very High</option>
+          </div>
+
+          <div class="control-group">
+            <label for="risk-filter">Risk tier</label>
+            <select id="risk-filter">
+              <option value="all">All</option>
+              <option value="Minimal">Minimal</option>
+              <option value="Limited">Limited</option>
               <option value="High">High</option>
-              <option value="Medium">Medium</option>
-              <option value="Low">Low</option>
-            </select>
-            <select id="filterOwner" class="inventory-filter" aria-label="Filter by owner">
-              <option value="">Owner: All</option>
-            </select>
-            <select id="filterPolicy" class="inventory-filter" aria-label="Filter by policy alignment">
-              <option value="">Policy: All</option>
-              <option value="aligned">Aligned</option>
-              <option value="gap">Policy gaps</option>
             </select>
           </div>
 
-          <div class="inventory-table-wrapper">
-            <table class="inventory-table" aria-label="AI systems inventory table">
-              <thead>
-                <tr>
-                  <th>Name</th>
-                  <th>Owner</th>
-                  <th>Category</th>
-                  <th>Risk</th>
-                  <th>Reg/Exposure</th>
-                  <th>E–S–Ec</th>
-                  <th>Policy</th>
-                </tr>
-              </thead>
-              <tbody id="inventoryTableBody"></tbody>
-            </table>
+          <div class="control-group">
+            <label for="status-filter">Lifecycle status</label>
+            <select id="status-filter">
+              <option value="all">All</option>
+              <option value="In production">In production</option>
+              <option value="Pilot">Pilot</option>
+              <option value="Under assessment">Under assessment</option>
+              <option value="Retired">Retired</option>
+            </select>
           </div>
 
-          <div class="inventory-note" id="inventorySummary"></div>
+          <div class="control-group">
+            <label for="owner-filter">Business owner</label>
+            <select id="owner-filter">
+              <option value="all">All</option>
+            </select>
+          </div>
+
+          <div class="control-group">
+            <label for="lens-filter">Framework lens</label>
+            <select id="lens-filter">
+              <option value="all">All</option>
+            </select>
+          </div>
+
+          <button onclick="resetInventoryFilters()" class="btn-reset">Reset filters</button>
+        </div>
+
+        <!-- Systems Table -->
+        <div class="table-card">
+          <table class="inventory-table">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>System name</th>
+                <th>Business owner</th>
+                <th>Primary use case</th>
+                <th>Risk tier</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody id="inventory-tbody"></tbody>
+          </table>
+        </div>
+
+        <!-- Detail Panel -->
+        <div id="detail-panel" class="detail-card detail-hidden">
+          <div class="detail-header">
+            <h3>System details</h3>
+            <p>Select a row in the inventory to see more information.</p>
+          </div>
+          <div id="detail-content"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- E-S-Ec Lens View -->
+    <div id="view-esec" class="view-content view-hidden">
+<section class="panel" aria-labelledby="esec-title">
+  <h2 id="esec-title" class="sr-only">E–S–Ec Lens</h2>
+  <div class="iframe-shell" role="region" aria-label="E–S–Ec Lens V3">
+    <iframe id="esecV3Frame" title="E–S–Ec Lens V3" class="esec-iframe" loading="lazy" srcdoc="&lt;!doctype html&gt;&lt;html lang=&quot;en&quot;&gt;&lt;head&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width,initial-scale=1&quot;&gt;&lt;style&gt;*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;
+  background-color: #f3f5f8;
+  color: #111111;
+}
+
+/* Layout shell */
+.dashboard {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header */
+.top-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1rem 1.75rem;
+  background-color: #005eb8; /* NHS blue */
+  color: #ffffff;
+}
+
+.brand-left {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.brand-logo-placeholder {
+  width: 40px;
+  height: 40px;
+  border-radius: 999px;
+  background-color: #ffffff;
+  color: #005eb8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+}
+
+.app-title {
+  margin: 0;
+  font-size: 1.4rem;
+}
+
+.app-subtitle {
+  margin: 0;
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+
+.brand-right {
+  max-width: 380px;
+  font-size: 0.85rem;
+  text-align: right;
+}
+
+.header-meta {
+  margin: 0 0 0.15rem;
+}
+
+.header-date {
+  margin: 0;
+  font-size: 0.8rem;
+  opacity: 0.95;
+}
+
+/* Main layout */
+.main-layout {
+  flex: 1;
+  padding: 1.5rem;
+}
+
+/* Tiles row */
+.home-tiles {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.tile-button {
+  padding: 0.6rem 1rem;
+  border-radius: 999px;
+  border: 1px solid #c5cbd3;
+  background-color: #ffffff;
+  color: #1b1b1b;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.tile-button.active {
+  background-color: #007f3b; /* NHS green */
+  border-color: #007f3b;
+  color: #ffffff;
+}
+
+/* Card */
+.card {
+  background-color: #ffffff;
+  border-radius: 1rem;
+  padding: 1.25rem 1.5rem 1.5rem;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.06);
+}
+
+/* Top row: gauges + stats */
+.gauges-and-stats {
+  display: grid;
+  grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+  gap: 1.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.section-heading {
+  margin: 0 0 0.25rem;
+  font-size: 1rem;
+}
+
+.section-subheading {
+  margin: 0 0 0.75rem;
+  font-size: 0.85rem;
+  color: #4c5764;
+}
+
+/* Gauges */
+.gauges-row {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.gauge-card {
+  border-radius: 0.9rem;
+  padding: 0.9rem;
+  border: 1px solid #dde3ea;
+  background-color: #f9fafb;
+}
+
+.gauge-title {
+  margin: 0 0 0.6rem;
+  font-size: 0.95rem;
+}
+
+.gauge {
+  --angle: 0deg;
+  --size: 110px;
+  width: var(--size);
+  height: var(--size);
+  border-radius: 50%;
+  margin: 0 auto 0.6rem;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gauge-fill {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: conic-gradient(#d8dde5 0deg, #d8dde5 360deg);
+}
+
+.gauge[data-dimension=&quot;environment&quot;] .gauge-fill {
+  background: conic-gradient(#007f3b var(--angle), #d8dde5 var(--angle));
+}
+
+.gauge[data-dimension=&quot;social&quot;] .gauge-fill {
+  background: conic-gradient(#007f8f var(--angle), #d8dde5 var(--angle));
+}
+
+.gauge[data-dimension=&quot;economic&quot;] .gauge-fill {
+  background: conic-gradient(#005eb8 var(--angle), #d8dde5 var(--angle));
+}
+
+.gauge-center {
+  position: relative;
+  width: calc(var(--size) - 22px);
+  height: calc(var(--size) - 22px);
+  border-radius: 50%;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.gauge-score {
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+.gauge-unit {
+  font-size: 0.75rem;
+  color: #4c5764;
+}
+
+.gauge-caption {
+  margin: 0;
+  font-size: 0.8rem;
+  color: #4c5764;
+}
+
+/* Stats column */
+.stats-column {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+.stat-card {
+  border-radius: 0.9rem;
+  padding: 0.6rem 0.8rem;
+  border: 1px solid #dde3ea;
+  background-color: #f9fafb;
+}
+
+.stat-label {
+  margin: 0 0 0.1rem;
+  font-size: 0.8rem;
+  color: #4c5764;
+}
+
+.stat-value {
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.lens-narrative h3 {
+  margin: 0 0 0.25rem;
+  font-size: 0.95rem;
+}
+
+.summary-text {
+  margin: 0;
+  font-size: 0.85rem;
+  color: #3a4450;
+}
+
+/* Filters row */
+.filters-row {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr)) minmax(0, 1.5fr) auto;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+  align-items: flex-end;
+}
+
+.filter-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.filter-group--full {
+  grid-column: span 2;
+}
+
+.control-label {
+  font-weight: 600;
+  font-size: 0.85rem;
+}
+
+.control-select,
+.control-input {
+  padding: 0.35rem 0.6rem;
+  border-radius: 0.5rem;
+  border: 1px solid #c5cbd3;
+  font-size: 0.9rem;
+  background-color: #ffffff;
+}
+
+.filter-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.btn {
+  border-radius: 999px;
+  padding: 0.45rem 0.95rem;
+  font-size: 0.9rem;
+  cursor: pointer;
+  border: 1px solid transparent;
+}
+
+.secondary-btn {
+  background-color: #ffffff;
+  color: #1b1b1b;
+  border-color: #c5cbd3;
+}
+
+.secondary-btn:hover {
+  background-color: #f3f5f8;
+}
+
+/* Table + detail layout */
+.table-and-detail {
+  display: grid;
+  grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+  gap: 1rem;
+}
+
+/* Table */
+.table-wrapper {
+  border-radius: 0.9rem;
+  border: 1px solid #dde3ea;
+  overflow: hidden;
+  background-color: #ffffff;
+}
+
+.inventory-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+}
+
+.inventory-table th,
+.inventory-table td {
+  padding: 0.45rem 0.6rem;
+  border-bottom: 1px solid #edf0f4;
+  text-align: left;
+}
+
+.inventory-table thead {
+  background-color: #f3f5f8;
+}
+
+.inventory-table th {
+  font-weight: 600;
+  cursor: pointer;
+  user-select: none;
+}
+
+.inventory-table tbody tr {
+  cursor: pointer;
+}
+
+.inventory-table tbody tr:hover {
+  background-color: #f7fafc;
+}
+
+.inventory-table tbody tr.selected {
+  background-color: #e1f0ff;
+}
+
+.no-results {
+  margin: 0.6rem;
+  font-size: 0.8rem;
+  color: #4c5764;
+}
+
+/* Badges */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.12rem 0.45rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+}
+
+.badge-minimal {
+  background-color: #edf7ed;
+  color: #205523;
+}
+
+.badge-limited {
+  background-color: #fff7e6;
+  color: #8a5a00;
+}
+
+.badge-high {
+  background-color: #fef3f2;
+  color: #8a1f11;
+}
+
+.badge-status {
+  background-color: #e2effc;
+  color: #003a70;
+}
+
+/* Detail panel */
+.detail-panel {
+  border-radius: 0.9rem;
+  border: 1px solid #dde3ea;
+  padding: 0.8rem 0.9rem;
+  background-color: #f9fafb;
+  font-size: 0.85rem;
+}
+
+.detail-hint {
+  color: #4c5764;
+}
+
+.detail-title {
+  margin: 0 0 0.15rem;
+  font-size: 1rem;
+}
+
+.detail-meta {
+  margin: 0 0 0.4rem;
+  color: #4c5764;
+}
+
+.detail-subheading {
+  margin: 0.65rem 0 0.15rem;
+  font-size: 0.9rem;
+}
+
+.detail-text {
+  margin: 0;
+}
+
+.detail-label {
+  margin: 0.4rem 0 0.1rem;
+  font-weight: 600;
+}
+
+.detail-flag {
+  font-weight: 600;
+}
+
+.ese-list {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.ese-list li {
+  margin-bottom: 0.15rem;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .gauges-and-stats {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .gauges-row {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .stats-grid {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  }
+
+  .filters-row {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .filter-group--full {
+    grid-column: auto;
+  }
+
+  .table-and-detail {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+.edu-list {
+  list-style: none;
+  padding-left: 0;
+  margin: 0.2rem 0 0.5rem;
+}
+
+.edu-list li {
+  margin-bottom: 0.25rem;
+}
+
+.edu-list strong {
+  display: inline-block;
+  min-width: 180px;
+}&lt;/style&gt;&lt;/head&gt;&lt;body&gt;&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+  &lt;meta charset=&quot;UTF-8&quot; /&gt;
+  &lt;title&gt;E–S–Ec Lens – Portfolio View&lt;/title&gt;
+  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot; /&gt;
+  &lt;link rel=&quot;stylesheet&quot; href=&quot;styles.css&quot; /&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;div class=&quot;dashboard&quot;&gt;
+
+    &lt;!-- HEADER --&gt;
+    &lt;header class=&quot;top-header&quot;&gt;
+      &lt;div class=&quot;brand-left&quot;&gt;
+        &lt;div class=&quot;brand-logo-placeholder&quot; aria-hidden=&quot;true&quot;&gt;AI&lt;/div&gt;
+        &lt;div&gt;
+          &lt;h1 class=&quot;app-title&quot;&gt;AI RiskNav&lt;/h1&gt;
+          &lt;p class=&quot;app-subtitle&quot;&gt;E–S–Ec Lens – Portfolio Oversight View&lt;/p&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;brand-right&quot;&gt;
+        &lt;p class=&quot;header-meta&quot;&gt;
+          The E–S–Ec Lens summarises Environmental (E), Social (S), and Economic (Ec) risk/ alignment
+          scores across your AI portfolio to support board-level oversight.
+        &lt;/p&gt;
+        &lt;p class=&quot;header-date&quot;&gt;
+          Portfolio snapshot as at &lt;span id=&quot;today-date&quot;&gt;&lt;/span&gt;
+        &lt;/p&gt;
+      &lt;/div&gt;
+    &lt;/header&gt;
+
+    &lt;!-- MAIN --&gt;
+    &lt;main class=&quot;main-layout&quot;&gt;
+
+      &lt;!-- TILE STRIP (for future integration with other views) --&gt;
+      &lt;section class=&quot;home-tiles&quot; aria-label=&quot;Dashboard views&quot;&gt;
+        &lt;button class=&quot;tile-button active&quot; type=&quot;button&quot; aria-pressed=&quot;true&quot;&gt;
+          E–S–Ec Lens
+        &lt;/button&gt;
+      &lt;/section&gt;
+
+      &lt;!-- MAIN CARD --&gt;
+      &lt;section class=&quot;card eseclens-portfolio&quot; aria-label=&quot;E–S–Ec portfolio summary&quot;&gt;
+
+        &lt;!-- TOP ROW: GAUGES + STATS --&gt;
+        &lt;section class=&quot;gauges-and-stats&quot;&gt;
+
+          &lt;!-- Gauges --&gt;
+          &lt;div class=&quot;gauges-column&quot;&gt;
+            &lt;h2 class=&quot;section-heading&quot;&gt;Portfolio E–S–Ec summary&lt;/h2&gt;
+            &lt;p class=&quot;section-subheading&quot;&gt;
+              Scores are derived from your AI inventory (E, S, Ec = 1–5). They are normalised to 0–100
+              for the gauges below.
+            &lt;/p&gt;
+
+            &lt;div class=&quot;gauges-row&quot;&gt;
+              &lt;article class=&quot;gauge-card&quot;&gt;
+                &lt;h3 class=&quot;gauge-title&quot;&gt;Environment&lt;/h3&gt;
+                &lt;div class=&quot;gauge&quot; data-dimension=&quot;environment&quot; aria-label=&quot;Average environmental alignment&quot;&gt;
+                  &lt;div class=&quot;gauge-fill&quot;&gt;&lt;/div&gt;
+                  &lt;div class=&quot;gauge-center&quot;&gt;
+                    &lt;span class=&quot;gauge-score&quot; id=&quot;envScore&quot;&gt;0&lt;/span&gt;
+                    &lt;span class=&quot;gauge-unit&quot;&gt;/100&lt;/span&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;p class=&quot;gauge-caption&quot;&gt;
+                  Aggregated view of lifecycle and infrastructure impacts across AI systems.
+                &lt;/p&gt;
+              &lt;/article&gt;
+
+              &lt;article class=&quot;gauge-card&quot;&gt;
+                &lt;h3 class=&quot;gauge-title&quot;&gt;Social&lt;/h3&gt;
+                &lt;div class=&quot;gauge&quot; data-dimension=&quot;social&quot; aria-label=&quot;Average social alignment&quot;&gt;
+                  &lt;div class=&quot;gauge-fill&quot;&gt;&lt;/div&gt;
+                  &lt;div class=&quot;gauge-center&quot;&gt;
+                    &lt;span class=&quot;gauge-score&quot; id=&quot;socScore&quot;&gt;0&lt;/span&gt;
+                    &lt;span class=&quot;gauge-unit&quot;&gt;/100&lt;/span&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;p class=&quot;gauge-caption&quot;&gt;
+                  Fairness, inclusion, workforce and customer impacts across use cases.
+                &lt;/p&gt;
+              &lt;/article&gt;
+
+              &lt;article class=&quot;gauge-card&quot;&gt;
+                &lt;h3 class=&quot;gauge-title&quot;&gt;Economic&lt;/h3&gt;
+                &lt;div class=&quot;gauge&quot; data-dimension=&quot;economic&quot; aria-label=&quot;Average economic resilience&quot;&gt;
+                  &lt;div class=&quot;gauge-fill&quot;&gt;&lt;/div&gt;
+                  &lt;div class=&quot;gauge-center&quot;&gt;
+                    &lt;span class=&quot;gauge-score&quot; id=&quot;ecoScore&quot;&gt;0&lt;/span&gt;
+                    &lt;span class=&quot;gauge-unit&quot;&gt;/100&lt;/span&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;p class=&quot;gauge-caption&quot;&gt;
+                  Value, resilience and downside risk across AI-enabled processes.
+                &lt;/p&gt;
+              &lt;/article&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+
+          &lt;!-- Stats + lens narrative --&gt;
+          &lt;aside class=&quot;stats-column&quot; aria-label=&quot;Key portfolio stats&quot;&gt;
+            &lt;h2 class=&quot;section-heading&quot;&gt;Key portfolio indicators&lt;/h2&gt;
+
+            &lt;div class=&quot;stats-grid&quot;&gt;
+              &lt;div class=&quot;stat-card&quot;&gt;
+                &lt;p class=&quot;stat-label&quot;&gt;Total AI systems in inventory&lt;/p&gt;
+                &lt;p class=&quot;stat-value&quot; id=&quot;stat-total&quot;&gt;0&lt;/p&gt;
+              &lt;/div&gt;
+
+              &lt;div class=&quot;stat-card&quot;&gt;
+                &lt;p class=&quot;stat-label&quot;&gt;High-risk AI systems (EU AI Act type)&lt;/p&gt;
+                &lt;p class=&quot;stat-value&quot; id=&quot;stat-high&quot;&gt;0&lt;/p&gt;
+              &lt;/div&gt;
+
+              &lt;div class=&quot;stat-card&quot;&gt;
+                &lt;p class=&quot;stat-label&quot;&gt;In pilot / under assessment&lt;/p&gt;
+                &lt;p class=&quot;stat-value&quot; id=&quot;stat-review&quot;&gt;0&lt;/p&gt;
+              &lt;/div&gt;
+
+              &lt;div class=&quot;stat-card&quot;&gt;
+                &lt;p class=&quot;stat-label&quot;&gt;High E–S–Ec maturity (≥ 4/5)&lt;/p&gt;
+                &lt;p class=&quot;stat-value&quot; id=&quot;stat-strong&quot;&gt;0&lt;/p&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+
+            &lt;div class=&quot;lens-narrative&quot;&gt;
+              &lt;h3&gt;Board oversight cue&lt;/h3&gt;
+              &lt;p id=&quot;oversightCue&quot; class=&quot;summary-text&quot;&gt;
+                Use the filters below to focus on high-risk, high-impact systems.
+                The gauges and stats will update to reflect the subset you are reviewing.
+              &lt;/p&gt;
+            &lt;/div&gt;
+          &lt;/aside&gt;
+        &lt;/section&gt;
+
+        &lt;!-- FILTERS --&gt;
+        &lt;section class=&quot;filters-row&quot; aria-label=&quot;Portfolio filters&quot;&gt;
+          &lt;div class=&quot;filter-group&quot;&gt;
+            &lt;label for=&quot;risk-filter&quot; class=&quot;control-label&quot;&gt;Risk tier&lt;/label&gt;
+            &lt;select id=&quot;risk-filter&quot; class=&quot;control-select&quot;&gt;
+              &lt;option value=&quot;all&quot;&gt;All risk tiers&lt;/option&gt;
+              &lt;option value=&quot;High&quot;&gt;High&lt;/option&gt;
+              &lt;option value=&quot;Limited&quot;&gt;Limited&lt;/option&gt;
+              &lt;option value=&quot;Minimal&quot;&gt;Minimal&lt;/option&gt;
+            &lt;/select&gt;
+          &lt;/div&gt;
+
+          &lt;div class=&quot;filter-group&quot;&gt;
+            &lt;label for=&quot;status-filter&quot; class=&quot;control-label&quot;&gt;Lifecycle status&lt;/label&gt;
+            &lt;select id=&quot;status-filter&quot; class=&quot;control-select&quot;&gt;
+              &lt;option value=&quot;all&quot;&gt;All statuses&lt;/option&gt;
+              &lt;option value=&quot;In production&quot;&gt;In production&lt;/option&gt;
+              &lt;option value=&quot;Pilot&quot;&gt;Pilot&lt;/option&gt;
+              &lt;option value=&quot;Under assessment&quot;&gt;Under assessment&lt;/option&gt;
+              &lt;option value=&quot;Retired&quot;&gt;Retired&lt;/option&gt;
+            &lt;/select&gt;
+          &lt;/div&gt;
+
+          &lt;div class=&quot;filter-group&quot;&gt;
+            &lt;label for=&quot;owner-filter&quot; class=&quot;control-label&quot;&gt;Business owner&lt;/label&gt;
+            &lt;select id=&quot;owner-filter&quot; class=&quot;control-select&quot;&gt;
+              &lt;option value=&quot;all&quot;&gt;All owners&lt;/option&gt;
+            &lt;/select&gt;
+          &lt;/div&gt;
+
+          &lt;div class=&quot;filter-group&quot;&gt;
+            &lt;label for=&quot;framework-filter&quot; class=&quot;control-label&quot;&gt;Framework lens&lt;/label&gt;
+            &lt;select id=&quot;framework-filter&quot; class=&quot;control-select&quot;&gt;
+              &lt;option value=&quot;all&quot;&gt;Any framework&lt;/option&gt;
+              &lt;option value=&quot;aiGov&quot;&gt;AI governance frameworks (EU AI Act, NIST, ISO/IEC 42001)&lt;/option&gt;
+              &lt;option value=&quot;sustainability&quot;&gt;Sustainability / climate frameworks (IFRS S2, GRI, SDGs, SASB)&lt;/option&gt;
+              &lt;option value=&quot;riskEthics&quot;&gt;Risk &amp; ethics frameworks (ISO 31000, UK Corporate Governance Code, GDPR)&lt;/option&gt;
+            &lt;/select&gt;
+          &lt;/div&gt;
+
+          &lt;div class=&quot;filter-group filter-group--full&quot;&gt;
+            &lt;label for=&quot;search-input&quot; class=&quot;control-label&quot;&gt;Search by ID, name, owner or use case&lt;/label&gt;
+            &lt;input
+              id=&quot;search-input&quot;
+              class=&quot;control-input&quot;
+              type=&quot;text&quot;
+              placeholder=&quot;e.g. credit scoring, HR, chatbots&quot;
+            /&gt;
+          &lt;/div&gt;
+
+          &lt;div class=&quot;filter-actions&quot;&gt;
+            &lt;button id=&quot;reset-filters&quot; type=&quot;button&quot; class=&quot;btn secondary-btn&quot;&gt;
+              Reset filters
+            &lt;/button&gt;
+          &lt;/div&gt;
+        &lt;/section&gt;
+
+        &lt;!-- TABLE + DETAILS --&gt;
+        &lt;section class=&quot;table-and-detail&quot;&gt;
+
+          &lt;!-- Table --&gt;
+          &lt;div class=&quot;table-wrapper&quot; aria-label=&quot;AI inventory table&quot;&gt;
+            &lt;table class=&quot;inventory-table&quot;&gt;
+              &lt;thead&gt;
+                &lt;tr&gt;
+                  &lt;th data-sort=&quot;id&quot;&gt;ID&lt;/th&gt;
+                  &lt;th data-sort=&quot;name&quot;&gt;System name&lt;/th&gt;
+                  &lt;th data-sort=&quot;owner&quot;&gt;Owner&lt;/th&gt;
+                  &lt;th data-sort=&quot;riskTier&quot;&gt;Risk tier&lt;/th&gt;
+                  &lt;th&gt;Status&lt;/th&gt;
+                  &lt;th data-sort=&quot;envScore&quot;&gt;E&lt;/th&gt;
+                  &lt;th data-sort=&quot;socialScore&quot;&gt;S&lt;/th&gt;
+                  &lt;th data-sort=&quot;economicScore&quot;&gt;Ec&lt;/th&gt;
+                &lt;/tr&gt;
+              &lt;/thead&gt;
+              &lt;tbody id=&quot;inventory-body&quot;&gt;&lt;/tbody&gt;
+            &lt;/table&gt;
+            &lt;p id=&quot;no-results&quot; class=&quot;no-results&quot; hidden&gt;
+              No AI systems match the current filters. Try broadening your selection.
+            &lt;/p&gt;
+          &lt;/div&gt;
+
+          &lt;!-- Detail panel --&gt;
+          &lt;aside class=&quot;detail-panel&quot; aria-label=&quot;Framework and risk detail&quot;&gt;
+            &lt;div id=&quot;detail-hint&quot; class=&quot;detail-hint&quot;&gt;
+              &lt;p&gt;
+                Select an AI system from the table to see its E–S–Ec scores, framework
+                alignment and key board-facing flags.
+              &lt;/p&gt;
+            &lt;/div&gt;
+
+            &lt;div id=&quot;detail-content&quot; class=&quot;detail-content&quot; hidden&gt;
+              &lt;h2 class=&quot;detail-title&quot;&gt;
+                &lt;span id=&quot;detail-id&quot;&gt;&lt;/span&gt; – &lt;span id=&quot;detail-name&quot;&gt;&lt;/span&gt;
+              &lt;/h2&gt;
+              &lt;p class=&quot;detail-meta&quot;&gt;
+                Owner: &lt;strong id=&quot;detail-owner&quot;&gt;&lt;/strong&gt; · Tech owner:
+                &lt;strong id=&quot;detail-tech-owner&quot;&gt;&lt;/strong&gt; · Status:
+                &lt;strong id=&quot;detail-status&quot;&gt;&lt;/strong&gt; · Risk tier:
+                &lt;span id=&quot;detail-risk&quot;&gt;&lt;/span&gt;
+              &lt;/p&gt;
+              &lt;p class=&quot;detail-meta&quot;&gt;
+                Last reviewed: &lt;span id=&quot;detail-last-review&quot;&gt;&lt;/span&gt;
+              &lt;/p&gt;
+
+              &lt;h3 class=&quot;detail-subheading&quot;&gt;Use case&lt;/h3&gt;
+              &lt;p id=&quot;detail-usecase&quot; class=&quot;detail-text&quot;&gt;&lt;/p&gt;
+
+              &lt;h3 class=&quot;detail-subheading&quot;&gt;E–S–Ec scores&lt;/h3&gt;
+              &lt;ul class=&quot;ese-list&quot;&gt;
+                &lt;li&gt;&lt;strong&gt;E&lt;/strong&gt;: &lt;span id=&quot;detail-env&quot;&gt;&lt;/span&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;strong&gt;S&lt;/strong&gt;: &lt;span id=&quot;detail-soc&quot;&gt;&lt;/span&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;strong&gt;Ec&lt;/strong&gt;: &lt;span id=&quot;detail-ec&quot;&gt;&lt;/span&gt;&lt;/li&gt;
+              &lt;/ul&gt;
+
+              &lt;h3 class=&quot;detail-subheading&quot;&gt;Data &amp; sensitivity&lt;/h3&gt;
+              &lt;p id=&quot;detail-data-category&quot; class=&quot;detail-text&quot;&gt;&lt;/p&gt;
+                            &lt;h3 class=&quot;detail-subheading&quot;&gt;Educational risk lens&lt;/h3&gt;
+              &lt;ul class=&quot;edu-list&quot;&gt;
+                &lt;li&gt;
+                  &lt;strong&gt;AI governance focus:&lt;/strong&gt;
+                  &lt;span id=&quot;edu-aiGov&quot;&gt;&lt;/span&gt;
+                &lt;/li&gt;
+                &lt;li&gt;
+                  &lt;strong&gt;Sustainability / climate / SDGs:&lt;/strong&gt;
+                  &lt;span id=&quot;edu-sustainability&quot;&gt;&lt;/span&gt;
+                &lt;/li&gt;
+                &lt;li&gt;
+                  &lt;strong&gt;Risk, ethics &amp; corporate governance:&lt;/strong&gt;
+                  &lt;span id=&quot;edu-risk-ethics&quot;&gt;&lt;/span&gt;
+                &lt;/li&gt;
+              &lt;/ul&gt;
+
+              &lt;h3 class=&quot;detail-subheading&quot;&gt;Framework alignment&lt;/h3&gt;
+              &lt;p class=&quot;detail-label&quot;&gt;AI governance&lt;/p&gt;
+              &lt;p id=&quot;detail-ai-gov&quot; class=&quot;detail-text&quot;&gt;&lt;/p&gt;
+
+              &lt;p class=&quot;detail-label&quot;&gt;Sustainability / climate / SDGs&lt;/p&gt;
+              &lt;p id=&quot;detail-sustainability&quot; class=&quot;detail-text&quot;&gt;&lt;/p&gt;
+
+              &lt;p class=&quot;detail-label&quot;&gt;Risk, ethics, and corporate governance&lt;/p&gt;
+              &lt;p id=&quot;detail-risk-ethics&quot; class=&quot;detail-text&quot;&gt;&lt;/p&gt;
+
+              &lt;h3 class=&quot;detail-subheading&quot;&gt;Flag for board attention&lt;/h3&gt;
+              &lt;p id=&quot;detail-flag&quot; class=&quot;detail-text detail-flag&quot;&gt;&lt;/p&gt;
+
+              &lt;h3 class=&quot;detail-subheading&quot;&gt;Notes&lt;/h3&gt;
+              &lt;p id=&quot;detail-notes&quot; class=&quot;detail-text&quot;&gt;&lt;/p&gt;
+            &lt;/div&gt;
+          &lt;/aside&gt;
+
+        &lt;/section&gt;
+
+      &lt;/section&gt;
+    &lt;/main&gt;
+  &lt;/div&gt;
+
+  
+&lt;/body&gt;
+&lt;/html&gt;
+    &lt;script&gt;
+// -----------------------------------------------------
+// AI INVENTORY DATASET (as provided)
+// -----------------------------------------------------
+
+const aiInventory = [
+  {
+    id: &quot;AI-001&quot;,
+    name: &quot;Customer Credit Scoring Engine&quot;,
+    owner: &quot;Retail Banking&quot;,
+    techOwner: &quot;Data Science Team&quot;,
+    useCase: &quot;Predict probability of default for loan applications.&quot;,
+    riskTier: &quot;High&quot;,
+    status: &quot;In production&quot;,
+    lastReview: &quot;2025-06-15&quot;,
+    envScore: 2,
+    socialScore: 4,
+    economicScore: 5,
+    dataCategory: &quot;Highly sensitive personal &amp; financial data&quot;,
+    aiGovFrameworks: [
+      &quot;EU Artificial Intelligence Act (high-risk: credit scoring)&quot;,
+      &quot;NIST AI RMF&quot;,
+      &quot;ISO/IEC 42001 (implementation in progress)&quot;,
+      &quot;OECD AI Principles&quot;
+    ],
+    sustainabilityFrameworks: [
+      &quot;IFRS S2 (credit exposure under climate scenarios)&quot;,
+      &quot;SDG Impact Standards (SDG 8 &amp; 10)&quot;
+    ],
+    riskEthicsFrameworks: [
+      &quot;ISO 31000&quot;,
+      &quot;UK Corporate Governance Code&quot;,
+      &quot;GDPR&quot;,
+      &quot;RRI Toolkit&quot;
+    ],
+    flag: &quot;High social and economic impact; must meet EU AI Act high-risk obligations and fairness / bias safeguards.&quot;,
+    notes:
+      &quot;Used for creditworthiness assessments. Quarterly fairness reviews, model risk governance, and drift monitoring in place. Alignment work with ISO/IEC 42001 design underway.&quot;
+  },
+  {
+    id: &quot;AI-002&quot;,
+    name: &quot;Contact Centre Chatbot&quot;,
+    owner: &quot;Customer Services&quot;,
+    techOwner: &quot;Digital Product Team&quot;,
+    useCase: &quot;Handle routine customer queries and triage to human agents.&quot;,
+    riskTier: &quot;Limited&quot;,
+    status: &quot;In production&quot;,
+    lastReview: &quot;2025-05-01&quot;,
+    envScore: 3,
+    socialScore: 3,
+    economicScore: 4,
+    dataCategory: &quot;Customer interaction logs and FAQs&quot;,
+    aiGovFrameworks: [
+      &quot;EU Artificial Intelligence Act (limited-risk transparency obligations)&quot;,
+      &quot;NIST AI RMF&quot;
+    ],
+    sustainabilityFrameworks: [&quot;GRI Standards (service quality indicators)&quot;],
+    riskEthicsFrameworks: [&quot;ISO 31000&quot;, &quot;GDPR&quot;, &quot;RRI Toolkit&quot;],
+    flag: &quot;Transparency to customers and escalation to humans required under EU AI Act limited-risk provisions.&quot;,
+    notes:
+      &quot;Provides clear disclosure that customers are interacting with an automated system. Logs are sampled monthly for quality, tone, and hallucination risk.&quot;
+  },
+  {
+    id: &quot;AI-003&quot;,
+    name: &quot;Fraud Transaction Anomaly Detector&quot;,
+    owner: &quot;Risk &amp; Compliance&quot;,
+    techOwner: &quot;Fraud Analytics Squad&quot;,
+    useCase: &quot;Identify suspicious transactions for further investigation.&quot;,
+    riskTier: &quot;High&quot;,
+    status: &quot;In production&quot;,
+    lastReview: &quot;2025-07-02&quot;,
+    envScore: 2,
+    socialScore: 4,
+    economicScore: 5,
+    dataCategory: &quot;Financial &amp; behavioural transaction data&quot;,
+    aiGovFrameworks: [
+      &quot;EU Artificial Intelligence Act (high-risk: fraud monitoring and AML support)&quot;,
+      &quot;NIST AI RMF&quot;,
+      &quot;ISO/IEC 42001&quot;,
+      &quot;OECD AI Principles&quot;
+    ],
+    sustainabilityFrameworks: [
+      &quot;IFRS S2 (financial resilience under climate-related fraud patterns)&quot;
+    ],
+    riskEthicsFrameworks: [
+      &quot;ISO 31000&quot;,
+      &quot;UK Corporate Governance Code&quot;,
+      &quot;GDPR&quot;,
+      &quot;RRI Toolkit&quot;
+    ],
+    flag: &quot;High economic and social impact; false positives must be managed with human-in-the-loop and explainability.&quot;,
+    notes:
+      &quot;Model performance and false positive rates are reviewed by the Model Risk Committee. EU AI Act high-risk register entry maintained for audit.&quot;
+  },
+  {
+    id: &quot;AI-004&quot;,
+    name: &quot;HR Candidate Screening Tool&quot;,
+    owner: &quot;Human Resources&quot;,
+    techOwner: &quot;People Analytics&quot;,
+    useCase: &quot;Pre-screen CVs for minimum job requirements.&quot;,
+    riskTier: &quot;High&quot;,
+    status: &quot;Pilot&quot;,
+    lastReview: &quot;2025-04-10&quot;,
+    envScore: 2,
+    socialScore: 5,
+    economicScore: 3,
+    dataCategory: &quot;Personal and employment application data&quot;,
+    aiGovFrameworks: [
+      &quot;EU Artificial Intelligence Act (high-risk: employment-related)&quot;,
+      &quot;NIST AI RMF&quot;,
+      &quot;ISO/IEC 42001 (design phase)&quot;,
+      &quot;OECD AI Principles&quot;
+    ],
+    sustainabilityFrameworks: [&quot;SDG Impact Standards (SDG 5 &amp; 10 – fair access to work)&quot;],
+    riskEthicsFrameworks: [&quot;ISO 31000&quot;, &quot;UK Corporate Governance Code&quot;, &quot;GDPR&quot;, &quot;RRI Toolkit&quot;],
+    flag: &quot;High social risk; cannot move beyond pilot until fairness, bias and explainability obligations are demonstrably met.&quot;,
+    notes:
+      &quot;Pilot restricted to one business unit. External bias audit scheduled. Candidates are notified about automated pre-screening and appeals process.&quot;
+  },
+  {
+    id: &quot;AI-005&quot;,
+    name: &quot;Marketing Propensity Model&quot;,
+    owner: &quot;Marketing&quot;,
+    techOwner: &quot;Analytics Centre of Excellence&quot;,
+    useCase: &quot;Target customers most likely to respond to a campaign.&quot;,
+    riskTier: &quot;Limited&quot;,
+    status: &quot;In production&quot;,
+    lastReview: &quot;2025-03-21&quot;,
+    envScore: 3,
+    socialScore: 3,
+    economicScore: 4,
+    dataCategory: &quot;Customer behaviour, channel and demographic data&quot;,
+    aiGovFrameworks: [
+      &quot;EU Artificial Intelligence Act (limited-risk profiling)&quot;,
+      &quot;NIST AI RMF&quot;
+    ],
+    sustainabilityFrameworks: [
+      &quot;GRI Standards (marketing communications)&quot;,
+      &quot;SDG Impact Standards (responsible consumption &amp; production)&quot;
+    ],
+    riskEthicsFrameworks: [&quot;ISO 31000&quot;, &quot;GDPR&quot;, &quot;RRI Toolkit&quot;],
+    flag: &quot;Limited-risk AI; must respect consent, right to object, and responsible marketing principles.&quot;,
+    notes:
+      &quot;Opt-out mechanisms and suppression lists enforced. Regular GDPR compliance checks and monitoring of complaints / opt-out rates.&quot;
+  },
+  {
+    id: &quot;AI-006&quot;,
+    name: &quot;IT Ticket Prioritisation Model&quot;,
+    owner: &quot;IT Operations&quot;,
+    techOwner: &quot;IT Service Management&quot;,
+    useCase: &quot;Prioritise incident tickets based on impact and urgency.&quot;,
+    riskTier: &quot;Minimal&quot;,
+    status: &quot;In production&quot;,
+    lastReview: &quot;2025-02-10&quot;,
+    envScore: 3,
+    socialScore: 2,
+    economicScore: 3,
+    dataCategory: &quot;Internal operational and configuration data&quot;,
+    aiGovFrameworks: [
+      &quot;EU Artificial Intelligence Act (minimal-risk: internal operations)&quot;,
+      &quot;NIST AI RMF&quot;
+    ],
+    sustainabilityFrameworks: [],
+    riskEthicsFrameworks: [&quot;ISO 31000&quot;, &quot;UK Corporate Governance Code (operational resilience)&quot;],
+    flag: &quot;Minimal-risk system; internal use only with strong manual override.&quot;,
+    notes:
+      &quot;Improves response times for major incidents. Documented as minimal-risk AI within the corporate AI inventory; regular reviews focus on availability, not ethics.&quot;
+  },
+  {
+    id: &quot;AI-007&quot;,
+    name: &quot;Energy Optimisation for Data Centre&quot;,
+    owner: &quot;Technology Infrastructure&quot;,
+    techOwner: &quot;Cloud &amp; Platform Team&quot;,
+    useCase: &quot;Adjust cooling and compute scheduling to reduce energy use.&quot;,
+    riskTier: &quot;Limited&quot;,
+    status: &quot;Pilot&quot;,
+    lastReview: &quot;2025-06-01&quot;,
+    envScore: 5,
+    socialScore: 3,
+    economicScore: 4,
+    dataCategory: &quot;Infrastructure telemetry and performance metrics&quot;,
+    aiGovFrameworks: [
+      &quot;EU Artificial Intelligence Act (minimal / limited-risk: infrastructure optimisation)&quot;,
+      &quot;NIST AI RMF&quot;,
+      &quot;OECD AI Principles&quot;
+    ],
+    sustainabilityFrameworks: [
+      &quot;GRI Standards (305 – emissions)&quot;,
+      &quot;IFRS S2 (Scope 2 energy use)&quot;,
+      &quot;SDG Impact Standards (SDG 7 &amp; 13)&quot;
+    ],
+    riskEthicsFrameworks: [&quot;ISO 31000&quot;, &quot;UK Corporate Governance Code&quot;, &quot;RRI Toolkit&quot;],
+    flag: &quot;Strong environmental benefit; must demonstrate that optimisation does not undermine resilience or service levels.&quot;,
+    notes:
+      &quot;Pilot shows early reductions in energy consumption. Reliability and latency monitored; results will feed into IFRS S2 climate reporting.&quot;
+  },
+  {
+    id: &quot;AI-008&quot;,
+    name: &quot;Document Classification Assistant&quot;,
+    owner: &quot;Legal &amp; Secretariat&quot;,
+    techOwner: &quot;Knowledge Management&quot;,
+    useCase: &quot;Tag and route contracts and legal documents.&quot;,
+    riskTier: &quot;Limited&quot;,
+    status: &quot;Under assessment&quot;,
+    lastReview: &quot;2025-05-18&quot;,
+    envScore: 2,
+    socialScore: 2,
+    economicScore: 3,
+    dataCategory: &quot;Confidential legal and contractual documents&quot;,
+    aiGovFrameworks: [
+      &quot;EU Artificial Intelligence Act (limited-risk information processing)&quot;,
+      &quot;NIST AI RMF&quot;,
+      &quot;OECD AI Principles&quot;
+    ],
+    sustainabilityFrameworks: [],
+    riskEthicsFrameworks: [&quot;ISO 31000&quot;, &quot;GDPR&quot;, &quot;RRI Toolkit&quot;],
+    flag: &quot;Needs robust access controls and confidentiality safeguards before go-live.&quot;,
+    notes:
+      &quot;Accuracy and security are being validated. Deployment will require DPIA and sign-off from the Data Protection Officer.&quot;
+  },
+  {
+    id: &quot;AI-009&quot;,
+    name: &quot;Supplier ESG Risk Scoring&quot;,
+    owner: &quot;Procurement &amp; Sustainability&quot;,
+    techOwner: &quot;Sustainability Analytics&quot;,
+    useCase: &quot;Score suppliers on ESG and climate risk factors.&quot;,
+    riskTier: &quot;Limited&quot;,
+    status: &quot;In production&quot;,
+    lastReview: &quot;2025-07-01&quot;,
+    envScore: 5,
+    socialScore: 4,
+    economicScore: 4,
+    dataCategory: &quot;Public ESG data and supplier disclosures&quot;,
+    aiGovFrameworks: [&quot;NIST AI RMF&quot;, &quot;OECD AI Principles&quot;],
+    sustainabilityFrameworks: [
+      &quot;GRI Standards&quot;,
+      &quot;IFRS S2&quot;,
+      &quot;SASB Standards&quot;,
+      &quot;SDG Impact Standards&quot;
+    ],
+    riskEthicsFrameworks: [&quot;ISO 31000&quot;, &quot;UK Corporate Governance Code&quot;, &quot;RRI Toolkit&quot;],
+    flag: &quot;Directly supports sustainability disclosures; methodology must align to IFRS S2 and GRI definitions.&quot;,
+    notes:
+      &quot;Scores feed into board-level ESG reporting and supplier selection. Methodology reviewed annually and published to suppliers for transparency.&quot;
+  },
+  {
+    id: &quot;AI-010&quot;,
+    name: &quot;Legacy Collections Dialler Model&quot;,
+    owner: &quot;Collections&quot;,
+    techOwner: &quot;Legacy Systems Team&quot;,
+    useCase: &quot;Optimise outbound dialling sequences for overdue accounts.&quot;,
+    riskTier: &quot;High&quot;,
+    status: &quot;Retired&quot;,
+    lastReview: &quot;2024-12-15&quot;,
+    envScore: 1,
+    socialScore: 4,
+    economicScore: 3,
+    dataCategory: &quot;Customer contact and arrears data&quot;,
+    aiGovFrameworks: [
+      &quot;EU Artificial Intelligence Act (historic design – pre-compliance)&quot;,
+      &quot;OECD AI Principles (used to assess retirement decision)&quot;
+    ],
+    sustainabilityFrameworks: [
+      &quot;SDG Impact Standards (SDG 1 &amp; 10 – financial inclusion) – review found mis-alignment&quot;
+    ],
+    riskEthicsFrameworks: [&quot;ISO 31000&quot;, &quot;GDPR&quot;],
+    flag: &quot;Retired due to potential unfair targeting, limited explainability and weak alignment to current responsible AI standards.&quot;,
+    notes:
+      &quot;Maintained in archive for audit only. Lessons from this model are used as a negative case in the organisation’s AI training materials.&quot;
+  }
+];
+
+// -----------------------------------------------------
+// Helper functions
+// -----------------------------------------------------
+
+function formatDate(dateStr) {
+  if (!dateStr) return &quot;&quot;;
+  const date = new Date(dateStr);
+  if (Number.isNaN(date.getTime())) return dateStr;
+  return date.toLocaleDateString(undefined, {
+    year: &quot;numeric&quot;,
+    month: &quot;short&quot;,
+    day: &quot;2-digit&quot;
+  });
+}
+
+function eseLabel(score) {
+  if (score &gt;= 5) return &quot;Very high&quot;;
+  if (score === 4) return &quot;High&quot;;
+  if (score === 3) return &quot;Medium&quot;;
+  if (score === 2) return &quot;Low&quot;;
+  if (score === 1) return &quot;Very low&quot;;
+  return &quot;N/A&quot;;
+}
+
+function riskBadgeClass(risk) {
+  if (risk === &quot;Minimal&quot;) return &quot;badge badge-minimal&quot;;
+  if (risk === &quot;Limited&quot;) return &quot;badge badge-limited&quot;;
+  if (risk === &quot;High&quot;) return &quot;badge badge-high&quot;;
+  return &quot;badge&quot;;
+}
+
+function arrayToText(arr) {
+  if (!arr || !arr.length) return &quot;None recorded&quot;;
+  return arr.join(&quot;; &quot;);
+}
+
+// -----------------------------------------------------
+// Educational explanations per framework
+// -----------------------------------------------------
+
+const frameworkExplanations = {
+  // AI governance
+  &quot;EU Artificial Intelligence Act (high-risk: credit scoring)&quot;:
+  &quot;High-risk AI under the EU AI Act. Boards must ensure conformity assessments, documented risk management, human oversight, and registration in the high-risk AI system register.&quot;,
+  &quot;EU Artificial Intelligence Act (high-risk: employment-related)&quot;:
+    &quot;High-risk employment AI. Boards should focus on fairness, transparency to candidates, human oversight and appeal routes for decisions.&quot;,
+  &quot;EU Artificial Intelligence Act (high-risk: fraud monitoring and AML support)&quot;:
+    &quot;High-risk fraud and AML monitoring. Board focus: proportionality of monitoring, explainability, false positives, and due process for affected customers.&quot;,
+  &quot;EU Artificial Intelligence Act (limited-risk transparency obligations)&quot;:
+    &quot;Limited-risk AI with transparency duties. Board oversight: ensure users are told they interact with AI and that escalation to humans is possible.&quot;,
+  &quot;EU Artificial Intelligence Act (limited-risk profiling)&quot;:
+    &quot;Limited-risk profiling. Board oversight: consent, right to object and guardrails against aggressive or discriminatory targeting.&quot;,
+  &quot;EU Artificial Intelligence Act (minimal-risk: internal operations)&quot;:
+    &quot;Minimal-risk internal AI. Oversight can be lighter but should still ensure reliability, availability and clear manual override.&quot;,
+  &quot;EU Artificial Intelligence Act (minimal / limited-risk: infrastructure optimisation)&quot;:
+    &quot;Minimal/limited-risk optimisation. Boards should ensure no unintended safety, resilience or discrimination impacts.&quot;,
+  &quot;EU Artificial Intelligence Act (historic design – pre-compliance)&quot;:
+    &quot;Legacy AI pre-dating the EU AI Act. Boards should treat this as a learning case and ensure new systems follow current obligations.&quot;,
+
+  &quot;NIST AI RMF&quot;:
+    &quot;Frames AI risk as a socio-technical issue. Boards should expect a structured programme across Govern, Map, Measure and Manage functions.&quot;,
+  &quot;ISO/IEC 42001 (implementation in progress)&quot;:
+    &quot;Signals a move toward a formal AI management system. Boards should track progress, scope and evidence of continuous improvement.&quot;,
+  &quot;ISO/IEC 42001 (design phase)&quot;:
+    &quot;Early-stage design against ISO/IEC 42001. Boards can ask when policies, roles and controls will be fully implemented.&quot;,
+  &quot;OECD AI Principles&quot;:
+    &quot;High-level principles on trustworthy AI. Boards should expect alignment on fairness, transparency, robustness and accountability in practice.&quot;,
+
+  // Sustainability / climate / SDGs
+  &quot;IFRS S2 (credit exposure under climate scenarios)&quot;:
+    &quot;Links the AI system to climate-related financial reporting. Boards must ensure scenarios, assumptions and data are robust and auditable.&quot;,
+  &quot;IFRS S2 (Scope 2 energy use)&quot;:
+    &quot;Connects AI-driven energy optimisation to climate disclosures. Boards should ask how savings are measured and reported.&quot;,
+  &quot;GRI Standards (service quality indicators)&quot;:
+    &quot;Focuses on service quality and customer outcomes. Boards can use this to challenge whether AI improves, rather than undermines, customer experience.&quot;,
+  &quot;GRI Standards (305 – emissions)&quot;:
+    &quot;Relates AI to emissions metrics. Boards should expect clear baselines, reduction claims and linkage to wider net-zero plans.&quot;,
+  &quot;GRI Standards&quot;:
+    &quot;Indicates that the AI system feeds into sustainability reporting. Boards should ask how definitions and metrics align with GRI guidance.&quot;,
+  &quot;SDG Impact Standards (SDG 8 &amp; 10)&quot;:
+    &quot;Focus on decent work and reduced inequalities. Boards should ask whether AI supports or undermines fair access to finance and opportunity.&quot;,
+  &quot;SDG Impact Standards (SDG 5 &amp; 10 – fair access to work)&quot;:
+    &quot;Highlights gender and inequality impacts in hiring. Boards must ask for evidence of fairness testing and accessible appeals.&quot;,
+  &quot;SDG Impact Standards (SDG 7 &amp; 13)&quot;:
+    &quot;Connects AI to clean energy and climate action goals. Boards should expect quantified impact and safeguards against rebound effects.&quot;,
+  &quot;SDG Impact Standards (SDG 1 &amp; 10 – financial inclusion) – review found mis-alignment&quot;:
+    &quot;Signals misalignment with inclusion goals. Boards should treat this as a cautionary tale and ensure new models avoid similar harms.&quot;,
+  &quot;SDG Impact Standards (responsible consumption &amp; production)&quot;:
+    &quot;Relates to responsible marketing and consumption patterns. Boards should ask how AI avoids exploitative or wasteful behaviours.&quot;,
+  &quot;SASB Standards&quot;:
+    &quot;Links supplier and ESG scoring to industry-specific sustainability metrics. Boards can use this to align procurement decisions with ESG strategy.&quot;,
+
+  // Risk, ethics, corporate governance
+  &quot;ISO 31000&quot;:
+    &quot;Positions AI within the enterprise risk management framework. Boards should expect risk appetite, controls and assurance to be explicitly defined.&quot;,
+  &quot;UK Corporate Governance Code&quot;:
+    &quot;Ties AI decisions to board duties on risk, controls and reporting. Boards should ensure AI risks are integrated into existing governance structures.&quot;,
+  &quot;UK Corporate Governance Code (operational resilience)&quot;:
+    &quot;Highlights operational resilience. Boards should ensure AI supports continuity, not new single points of failure.&quot;,
+  &quot;GDPR&quot;:
+    &quot;Emphasises data protection, lawful processing, minimisation and rights of individuals. Boards should request DPIAs and evidence of compliance.&quot;,
+  &quot;RRI Toolkit&quot;:
+    &quot;Points to Responsible Research and Innovation practices. Boards can ask how stakeholder engagement, reflection and responsiveness are built into AI projects.&quot;
+};
+
+// -----------------------------------------------------
+// DOM references
+// -----------------------------------------------------
+
+const elements = {
+  date: document.getElementById(&quot;today-date&quot;),
+
+  envScore: document.getElementById(&quot;envScore&quot;),
+  socScore: document.getElementById(&quot;socScore&quot;),
+  ecoScore: document.getElementById(&quot;ecoScore&quot;),
+
+  statTotal: document.getElementById(&quot;stat-total&quot;),
+  statHigh: document.getElementById(&quot;stat-high&quot;),
+  statReview: document.getElementById(&quot;stat-review&quot;),
+  statStrong: document.getElementById(&quot;stat-strong&quot;),
+
+  oversightCue: document.getElementById(&quot;oversightCue&quot;),
+
+  riskFilter: document.getElementById(&quot;risk-filter&quot;),
+  statusFilter: document.getElementById(&quot;status-filter&quot;),
+  ownerFilter: document.getElementById(&quot;owner-filter&quot;),
+  frameworkFilter: document.getElementById(&quot;framework-filter&quot;),
+  searchInput: document.getElementById(&quot;search-input&quot;),
+  resetFiltersBtn: document.getElementById(&quot;reset-filters&quot;),
+
+  tableBody: document.getElementById(&quot;inventory-body&quot;),
+  noResults: document.getElementById(&quot;no-results&quot;),
+
+  detailHint: document.getElementById(&quot;detail-hint&quot;),
+  detailContent: document.getElementById(&quot;detail-content&quot;),
+  detailId: document.getElementById(&quot;detail-id&quot;),
+  detailName: document.getElementById(&quot;detail-name&quot;),
+  detailOwner: document.getElementById(&quot;detail-owner&quot;),
+  detailTechOwner: document.getElementById(&quot;detail-tech-owner&quot;),
+  detailStatus: document.getElementById(&quot;detail-status&quot;),
+  detailRisk: document.getElementById(&quot;detail-risk&quot;),
+  detailLastReview: document.getElementById(&quot;detail-last-review&quot;),
+  detailUsecase: document.getElementById(&quot;detail-usecase&quot;),
+  detailEnv: document.getElementById(&quot;detail-env&quot;),
+  detailSoc: document.getElementById(&quot;detail-soc&quot;),
+  detailEc: document.getElementById(&quot;detail-ec&quot;),
+  detailDataCategory: document.getElementById(&quot;detail-data-category&quot;),
+  detailAiGov: document.getElementById(&quot;detail-ai-gov&quot;),
+  detailSustainability: document.getElementById(&quot;detail-sustainability&quot;),
+  detailRiskEthics: document.getElementById(&quot;detail-risk-ethics&quot;),
+  detailFlag: document.getElementById(&quot;detail-flag&quot;),
+  detailNotes: document.getElementById(&quot;detail-notes&quot;),
+
+  // Educational lens spans
+  eduAiGov: document.getElementById(&quot;edu-aiGov&quot;),
+  eduSustainability: document.getElementById(&quot;edu-sustainability&quot;),
+  eduRiskEthics: document.getElementById(&quot;edu-risk-ethics&quot;)
+};
+
+// -----------------------------------------------------
+// State
+// -----------------------------------------------------
+
+let currentFiltered = [...aiInventory];
+let currentSortField = null;
+let currentSortDirection = &quot;asc&quot;;
+
+// -----------------------------------------------------
+// Core portfolio calculations
+// -----------------------------------------------------
+
+function computePortfolioMetrics(list) {
+  if (!list.length) {
+    return {
+      env: 0,
+      soc: 0,
+      eco: 0,
+      total: 0,
+      highRisk: 0,
+      inReview: 0,
+      strong: 0
+    };
+  }
+
+  const total = list.length;
+
+  let envSum = 0;
+  let socSum = 0;
+  let ecoSum = 0;
+  let highRisk = 0;
+  let inReview = 0;
+  let strong = 0;
+
+  list.forEach(item =&gt; {
+    envSum += item.envScore;
+    socSum += item.socialScore;
+    ecoSum += item.economicScore;
+
+    if (item.riskTier === &quot;High&quot;) highRisk += 1;
+    if (item.status === &quot;Pilot&quot; || item.status === &quot;Under assessment&quot;) inReview += 1;
+    if (item.envScore &gt;= 4 &amp;&amp; item.socialScore &gt;= 4 &amp;&amp; item.economicScore &gt;= 4) strong += 1;
+  });
+
+  const envAvg = envSum / total;
+  const socAvg = socSum / total;
+  const ecoAvg = ecoSum / total;
+
+  return {
+    env: envAvg,
+    soc: socAvg,
+    eco: ecoAvg,
+    total,
+    highRisk,
+    inReview,
+    strong
+  };
+}
+
+function updateGaugesFromAverages(metrics) {
+  // convert 1–5 to 0–100
+  const envScore100 = Math.round((metrics.env / 5) * 100) || 0;
+  const socScore100 = Math.round((metrics.soc / 5) * 100) || 0;
+  const ecoScore100 = Math.round((metrics.eco / 5) * 100) || 0;
+
+  elements.envScore.textContent = envScore100;
+  elements.socScore.textContent = socScore100;
+  elements.ecoScore.textContent = ecoScore100;
+
+  const envGauge = document.querySelector('.gauge[data-dimension=&quot;environment&quot;]');
+  const socGauge = document.querySelector('.gauge[data-dimension=&quot;social&quot;]');
+  const ecoGauge = document.querySelector('.gauge[data-dimension=&quot;economic&quot;]');
+
+  envGauge.style.setProperty(&quot;--angle&quot;, `${(envScore100 / 100) * 360}deg`);
+  socGauge.style.setProperty(&quot;--angle&quot;, `${(socScore100 / 100) * 360}deg`);
+  ecoGauge.style.setProperty(&quot;--angle&quot;, `${(ecoScore100 / 100) * 360}deg`);
+
+  elements.statTotal.textContent = metrics.total;
+  elements.statHigh.textContent = metrics.highRisk;
+  elements.statReview.textContent = metrics.inReview;
+  elements.statStrong.textContent = metrics.strong;
+
+  // Oversight cue text aligned to survey / LR findings
+  const combined = (metrics.env + metrics.soc + metrics.eco) / 3;
+  let message =
+    &quot;Use the filters to explore subsets of your AI portfolio. Lower scores in any lens suggest a need for deeper board questions and targeted controls.&quot;;
+
+  if (!metrics.total) {
+    message =
+      &quot;No AI systems match the current filters. Reset the filters to regain a full-portfolio view.&quot;;
+  } else if (combined &lt; 2.5) {
+    message =
+      &quot;Overall E–S–Ec alignment is weak. Boards should treat the portfolio as high oversight risk and prioritise governance, assurance and framework-aligned remediation.&quot;;
+  } else if (combined &lt; 3.5) {
+    message =
+      &quot;E–S–Ec alignment is mixed. Some systems are maturing, but boards should request clearer evidence of trade-off management, data quality and framework coverage.&quot;;
+  } else {
+    message =
+      &quot;E–S–Ec alignment is strengthening, but boards should maintain regular reporting, independent challenge and linkage to frameworks such as EU AI Act, NIST AI RMF and IFRS S2.&quot;;
+  }
+
+  elements.oversightCue.textContent = message;
+}
+
+// -----------------------------------------------------
+// Educational summary builder
+// -----------------------------------------------------
+
+function buildEducationalSummaries(item) {
+  const aiGov = item.aiGovFrameworks || [];
+  const sust = item.sustainabilityFrameworks || [];
+  const riskEthics = item.riskEthicsFrameworks || [];
+
+  const summarise = frameworkList =&gt; {
+    if (!frameworkList.length) return &quot;No specific frameworks recorded for this lens.&quot;;
+    const messages = [];
+
+    frameworkList.forEach(fr =&gt; {
+      const expl = frameworkExplanations[fr];
+      if (expl) {
+        messages.push(expl);
+      }
+    });
+
+    if (!messages.length) {
+      return &quot;Frameworks recorded, but no additional educational summary is available yet. Boards should still expect evidence of practical alignment.&quot;;
+    }
+
+    // Keep it readable: one or two sentences merged, or top three if many
+    if (messages.length === 1) return messages[0];
+    if (messages.length === 2) return `${messages[0]} ${messages[1]}`;
+    return `${messages[0]} ${messages[1]} ${messages[2]}`;
+  };
+
+  return {
+    aiGovSummary: summarise(aiGov),
+    sustainabilitySummary: summarise(sust),
+    riskEthicsSummary: summarise(riskEthics)
+  };
+}
+
+// -----------------------------------------------------
+// Table rendering
+// -----------------------------------------------------
+
+function renderTable(list) {
+  elements.tableBody.innerHTML = &quot;&quot;;
+
+  if (!list.length) {
+    elements.noResults.hidden = false;
+    return;
+  }
+  elements.noResults.hidden = true;
+
+  list.forEach(item =&gt; {
+    const tr = document.createElement(&quot;tr&quot;);
+    tr.dataset.id = item.id;
+
+    tr.innerHTML = `
+      &lt;td&gt;${item.id}&lt;/td&gt;
+      &lt;td&gt;${item.name}&lt;/td&gt;
+      &lt;td&gt;${item.owner}&lt;/td&gt;
+      &lt;td&gt;&lt;span class=&quot;${riskBadgeClass(item.riskTier)}&quot;&gt;${item.riskTier}&lt;/span&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;span class=&quot;badge badge-status&quot;&gt;${item.status}&lt;/span&gt;&lt;/td&gt;
+      &lt;td&gt;${item.envScore}&lt;/td&gt;
+      &lt;td&gt;${item.socialScore}&lt;/td&gt;
+      &lt;td&gt;${item.economicScore}&lt;/td&gt;
+    `;
+
+    tr.addEventListener(&quot;click&quot;, () =&gt; handleRowClick(item.id));
+    elements.tableBody.appendChild(tr);
+  });
+
+  clearSelectedRowHighlight();
+}
+
+function clearSelectedRowHighlight() {
+  document.querySelectorAll(&quot;.inventory-table tbody tr&quot;).forEach(row =&gt; {
+    row.classList.remove(&quot;selected&quot;);
+  });
+}
+
+function handleRowClick(id) {
+  const item = aiInventory.find(x =&gt; x.id === id);
+  if (!item) return;
+
+  clearSelectedRowHighlight();
+  const row = document.querySelector(`tr[data-id=&quot;${id}&quot;]`);
+  if (row) row.classList.add(&quot;selected&quot;);
+
+  populateDetails(item);
+}
+
+function populateDetails(item) {
+  elements.detailHint.hidden = true;
+  elements.detailContent.hidden = false;
+
+  elements.detailId.textContent = item.id;
+  elements.detailName.textContent = item.name;
+  elements.detailOwner.textContent = item.owner;
+  elements.detailTechOwner.textContent = item.techOwner;
+  elements.detailStatus.textContent = item.status;
+  elements.detailRisk.textContent = item.riskTier;
+  elements.detailLastReview.textContent = formatDate(item.lastReview);
+  elements.detailUsecase.textContent = item.useCase;
+
+  elements.detailEnv.textContent = `${item.envScore} (${eseLabel(item.envScore)})`;
+  elements.detailSoc.textContent = `${item.socialScore} (${eseLabel(item.socialScore)})`;
+  elements.detailEc.textContent = `${item.economicScore} (${eseLabel(item.economicScore)})`;
+
+  elements.detailDataCategory.textContent = item.dataCategory;
+  elements.detailAiGov.textContent = arrayToText(item.aiGovFrameworks);
+  elements.detailSustainability.textContent = arrayToText(item.sustainabilityFrameworks);
+  elements.detailRiskEthics.textContent = arrayToText(item.riskEthicsFrameworks);
+  elements.detailFlag.textContent = item.flag;
+  elements.detailNotes.textContent = item.notes;
+
+  // Educational summaries for each lens
+  const edu = buildEducationalSummaries(item);
+  elements.eduAiGov.textContent = edu.aiGovSummary;
+  elements.eduSustainability.textContent = edu.sustainabilitySummary;
+  elements.eduRiskEthics.textContent = edu.riskEthicsSummary;
+}
+
+// -----------------------------------------------------
+// Filters and sorting
+// -----------------------------------------------------
+
+function initOwnerFilter() {
+  const owners = Array.from(new Set(aiInventory.map(item =&gt; item.owner))).sort();
+  owners.forEach(owner =&gt; {
+    const opt = document.createElement(&quot;option&quot;);
+    opt.value = owner;
+    opt.textContent = owner;
+    elements.ownerFilter.appendChild(opt);
+  });
+}
+
+function applyFilters() {
+  const searchTerm = elements.searchInput.value.trim().toLowerCase();
+  const risk = elements.riskFilter.value;
+  const status = elements.statusFilter.value;
+  const owner = elements.ownerFilter.value;
+  const frameworkLens = elements.frameworkFilter.value;
+
+  let list = [...aiInventory];
+
+  if (searchTerm) {
+    list = list.filter(item =&gt; {
+      return (
+        item.id.toLowerCase().includes(searchTerm) ||
+        item.name.toLowerCase().includes(searchTerm) ||
+        item.owner.toLowerCase().includes(searchTerm) ||
+        item.useCase.toLowerCase().includes(searchTerm)
+      );
+    });
+  }
+
+  if (risk !== &quot;all&quot;) {
+    list = list.filter(item =&gt; item.riskTier === risk);
+  }
+
+  if (status !== &quot;all&quot;) {
+    list = list.filter(item =&gt; item.status === status);
+  }
+
+  if (owner !== &quot;all&quot;) {
+    list = list.filter(item =&gt; item.owner === owner);
+  }
+
+  if (frameworkLens !== &quot;all&quot;) {
+    list = list.filter(item =&gt; {
+      if (frameworkLens === &quot;aiGov&quot;) {
+        return item.aiGovFrameworks &amp;&amp; item.aiGovFrameworks.length;
+      }
+      if (frameworkLens === &quot;sustainability&quot;) {
+        return item.sustainabilityFrameworks &amp;&amp; item.sustainabilityFrameworks.length;
+      }
+      if (frameworkLens === &quot;riskEthics&quot;) {
+        return item.riskEthicsFrameworks &amp;&amp; item.riskEthicsFrameworks.length;
+      }
+      return true;
+    });
+  }
+
+  currentFiltered = list;
+  applySortAndRender();
+  const metrics = computePortfolioMetrics(currentFiltered);
+  updateGaugesFromAverages(metrics);
+}
+
+function applySortAndRender() {
+  if (!currentSortField) {
+    renderTable(currentFiltered);
+    return;
+  }
+
+  const field = currentSortField;
+  const direction = currentSortDirection;
+
+  const sorted = [...currentFiltered].sort((a, b) =&gt; {
+    const aVal = a[field];
+    const bVal = b[field];
+
+    if (aVal === bVal) return 0;
+
+    if (typeof aVal === &quot;string&quot;) {
+      const aLower = aVal.toLowerCase();
+      const bLower = bVal.toLowerCase();
+      const comp = aLower &lt; bLower ? -1 : 1;
+      return direction === &quot;asc&quot; ? comp : -comp;
+    }
+
+    if (typeof aVal === &quot;number&quot;) {
+      const comp = aVal - bVal;
+      return direction === &quot;asc&quot; ? comp : -comp;
+    }
+
+    return 0;
+  });
+
+  renderTable(sorted);
+}
+
+function handleSortClick(field) {
+  if (currentSortField === field) {
+    currentSortDirection = currentSortDirection === &quot;asc&quot; ? &quot;desc&quot; : &quot;asc&quot;;
+  } else {
+    currentSortField = field;
+    currentSortDirection = &quot;asc&quot;;
+  }
+  applySortAndRender();
+}
+
+function resetFilters() {
+  elements.searchInput.value = &quot;&quot;;
+  elements.riskFilter.value = &quot;all&quot;;
+  elements.statusFilter.value = &quot;all&quot;;
+  elements.ownerFilter.value = &quot;all&quot;;
+  elements.frameworkFilter.value = &quot;all&quot;;
+
+  currentSortField = null;
+  currentSortDirection = &quot;asc&quot;;
+  currentFiltered = [...aiInventory];
+
+  renderTable(currentFiltered);
+  const metrics = computePortfolioMetrics(currentFiltered);
+  updateGaugesFromAverages(metrics);
+
+  elements.detailHint.hidden = false;
+  elements.detailContent.hidden = true;
+}
+
+// -----------------------------------------------------
+// Init
+// -----------------------------------------------------
+
+function initDate() {
+  const today = new Date();
+  elements.date.textContent = today.toLocaleDateString(undefined, {
+    year: &quot;numeric&quot;,
+    month: &quot;short&quot;,
+    day: &quot;2-digit&quot;
+  });
+}
+
+function initEvents() {
+  elements.searchInput.addEventListener(&quot;input&quot;, applyFilters);
+  elements.riskFilter.addEventListener(&quot;change&quot;, applyFilters);
+  elements.statusFilter.addEventListener(&quot;change&quot;, applyFilters);
+  elements.ownerFilter.addEventListener(&quot;change&quot;, applyFilters);
+  elements.frameworkFilter.addEventListener(&quot;change&quot;, applyFilters);
+  elements.resetFiltersBtn.addEventListener(&quot;click&quot;, resetFilters);
+
+  document.querySelectorAll(&quot;.inventory-table th[data-sort]&quot;).forEach(th =&gt; {
+    th.addEventListener(&quot;click&quot;, () =&gt; {
+      const field = th.getAttribute(&quot;data-sort&quot;);
+      handleSortClick(field);
+    });
+  });
+}
+
+function initLens() {
+  initDate();
+  initOwnerFilter();
+
+  currentFiltered = [...aiInventory];
+  renderTable(currentFiltered);
+
+  const metrics = computePortfolioMetrics(currentFiltered);
+  updateGaugesFromAverages(metrics);
+
+  initEvents();
+}
+
+document.addEventListener(&quot;DOMContentLoaded&quot;, initLens);
+&lt;/script&gt;&lt;/body&gt;&lt;/html&gt;"></iframe>
+  </div>
+</section>
+</div>
+
+    <!-- Risk & Controls View -->
+    <div id="view-risk" class="view-content view-hidden">
+      <div class="view-inner">
+        <div class="view-header">
+          <h2 class="view-title">Risk & Controls</h2>
+          <p class="view-description">Incidents, near misses and control strength across the AI portfolio</p>
+        </div>
+
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-label">Total Incidents</div>
+            <div class="stat-value">9</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label">High Severity</div>
+            <div class="stat-value stat-red">4</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label">Near Misses</div>
+            <div class="stat-value stat-amber">4</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label">Controls Strengthened</div>
+            <div class="stat-value stat-green">9</div>
+          </div>
+        </div>
+
+        <div id="incidents-list" class="incidents-list"></div>
+        <div id="controls-chart-container" class="chart-container"></div>
+      </div>
+    </div>
+
+    <!-- Education View -->
+    <section id="view-education" class="view-content view-hidden">
+
+    <div class="shell">
+    <!-- HERO -->
+    <header class="hero">
+      <div class="hero-left">
+        <h1 class="hero-main">
+          <span>AI RiskNav</span>
+          <span>Scenario &amp; Learning Mode</span>
+        </h1>
+        <p class="hero-sub">
+          Interactive scenarios that teach Environmental, Social and Economic (E–S–Ec) interpretation across your AI portfolio.
+          Select a scenario to see case-study detail, framework hooks and Board-level questions.
+        </p>
+        <p class="hero-date">
+          Scenario library snapshot as at <span id="heroDate"></span>
+        </p>
+
+        <div class="hero-pills">
+          <button type="button" class="hero-pill" id="pillCaseStudies">
+            Case studies
+          </button>
+          <button type="button" class="hero-pill" id="pillFrameworks">
+            Framework quick-guides
+          </button>
+          <button type="button" class="hero-pill" id="pillGlossary">
+            Glossary &amp; tooltips
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- MAIN LAYOUT -->
+    <main class="scenario-layout">
+      <!-- LEFT: SCENARIO LIST -->
+      <section class="scenario-list-panel">
+        <header class="scenario-list-header">
+          <h2>Scenario library</h2>
+          <p class="scenario-list-sub">
+            16 scenarios grouped by Environmental, Social, Economic and Integrated E–S–Ec lenses.
+            Use filters or browse by group, then select a scenario to explore the Board view.
+          </p>
+
+          <div class="scenario-filters" aria-label="Scenario filters">
+            <label class="field">
+              <span class="field-label">Primary lens</span>
+              <select id="filterLens">
+                <option value="all">All lenses</option>
+                <option value="env">Environmental</option>
+                <option value="soc">Social</option>
+                <option value="eco">Economic</option>
+                <option value="mixed">Integrated E–S–Ec</option>
+              </select>
+            </label>
+
+            <label class="field">
+              <span class="field-label">Risk band</span>
+              <select id="filterRisk">
+                <option value="all">All levels</option>
+                <option value="High">High</option>
+                <option value="Medium">Medium</option>
+                <option value="Low">Low</option>
+              </select>
+            </label>
+          </div>
+        </header>
+
+        <div id="scenarioList" class="scenario-list" role="list">
+          <!-- populated by JS -->
         </div>
       </section>
-    </main>
-  </div>
 
-  <script src="script.js"></script>
+      <!-- RIGHT: DETAIL -->
+      <section class="scenario-detail-panel" aria-live="polite">
+        <!-- Scenario header -->
+        <header class="scenario-detail-header">
+          <p class="scenario-pill" id="scenarioIdLabel">Scenario —</p>
+          <h2 id="scenarioTitle">Select a scenario to begin</h2>
+          <p id="scenarioTagline" class="scenario-tagline">
+            Scenario description, E–S–Ec scores and Board learning prompts will appear here.
+          </p>
+
+          <div class="scenario-meta-row">
+            <div class="risk-pill" id="scenarioRiskPill">
+              <span class="risk-label">Risk level</span>
+              <span class="risk-value">—</span>
+            </div>
+            <p class="scenario-systems" id="scenarioSystems">
+              Involved systems: —
+            </p>
+          </div>
+        </header>
+
+        <!-- E–S–Ec metrics -->
+        <section class="scenario-metrics" aria-label="E–S–Ec scores for this scenario">
+          <article class="metric-card metric-env">
+            <h3>Environmental</h3>
+            <p class="metric-score" id="envScore">–</p>
+            <p class="metric-band" id="envBand">–</p>
+          </article>
+
+          <article class="metric-card metric-soc">
+            <h3>Social</h3>
+            <p class="metric-score" id="socScore">–</p>
+            <p class="metric-band" id="socBand">–</p>
+          </article>
+
+          <article class="metric-card metric-eco">
+            <h3>Economic</h3>
+            <p class="metric-score" id="ecoScore">–</p>
+            <p class="metric-band" id="ecoBand">–</p>
+          </article>
+        </section>
+
+        <!-- CASE STUDY (Option B: labelled rows, collapsible) -->
+        <section class="case-study">
+          <div class="case-study-header">
+            <h3>Scenario case study</h3>
+            <button id="toggleCaseStudy" class="case-toggle" type="button" aria-expanded="true">
+              Collapse case study
+            </button>
+          </div>
+
+          <div id="caseStudyBody" class="case-body">
+            <div class="case-row">
+              <h4>What happened</h4>
+              <p id="csWhat">
+                Use the scenario list on the left to load a case study. Each scenario summarises a realistic AI risk situation linked to your 10-system inventory.
+              </p>
+            </div>
+            <div class="case-row">
+              <h4>Why it matters</h4>
+              <p id="csWhy">
+                This section explains why the scenario matters for Environmental, Social or Economic impact, reflecting survey results that showed Environmental interpretation is most challenging.
+              </p>
+            </div>
+            <div class="case-row">
+              <h4>Who is affected</h4>
+              <p id="csWho">
+                Stakeholders such as customers, employees, suppliers or regulators will appear here.
+              </p>
+            </div>
+            <div class="case-row">
+              <h4>E–S–Ec interpretation</h4>
+              <p id="csInterpret">
+                This row links the narrative to shifts in Environmental, Social and Economic exposure – the core learning goal of this simulator.
+              </p>
+            </div>
+            <div class="case-row">
+              <h4>Teaching moment</h4>
+              <p id="csTeach">
+                Teaching notes connect the scenario back to your research question: how Boards can build interpretive capacity across AI, sustainability and risk frameworks.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Signals & Frameworks -->
+        <section class="scenario-context">
+          <div class="scenario-context-block">
+            <h3>Signals to watch</h3>
+            <ul id="scenarioSignals" class="scenario-list-bullets">
+              <li>Leading indicators such as complaints, energy use, bias metrics or model drift will appear here.</li>
+            </ul>
+          </div>
+
+          <div class="scenario-context-block">
+            <h3>Framework hooks</h3>
+            <p class="framework-helper">
+              Hover or focus on a framework chip to see why it matters in this scenario.
+            </p>
+            <div id="frameworkTags" class="framework-tags">
+              <!-- framework chips via JS -->
+            </div>
+          </div>
+        </section>
+
+        <!-- Board questions & learning prompts -->
+        <section class="board-section">
+          <div class="board-header">
+            <h3>Board questions &amp; learning prompts</h3>
+            <button id="toggleBoardPanel" class="board-toggle" type="button" aria-expanded="false">
+              Show Board questions
+            </button>
+          </div>
+          <p class="board-helper">
+            Questions are grouped by Environmental, Social, Economic and Governance themes.
+            Use Beginner mode for foundational prompts and Expert mode for deeper trade-off and framework scrutiny.
+          </p>
+
+          <div id="boardPanel" class="board-panel" hidden>
+            <div class="board-mode-toggle" role="radiogroup" aria-label="Board question mode">
+              <button class="mode-btn active" data-mode="beginner" aria-pressed="true" type="button">
+                Beginner mode
+              </button>
+              <button class="mode-btn" data-mode="expert" aria-pressed="false" type="button">
+                Expert mode
+              </button>
+            </div>
+
+            <div class="board-grid">
+              <div class="board-column">
+                <h4>Environmental</h4>
+                <ul id="boardEnv" class="board-list"></ul>
+              </div>
+              <div class="board-column">
+                <h4>Social</h4>
+                <ul id="boardSoc" class="board-list"></ul>
+              </div>
+              <div class="board-column">
+                <h4>Economic</h4>
+                <ul id="boardEco" class="board-list"></ul>
+              </div>
+              <div class="board-column">
+                <h4>Governance</h4>
+                <ul id="boardGov" class="board-list"></ul>
+              </div>
+            </div>
+          </div>
+        </section>
+      </section>
+    </main>
+
+  <!-- Glossary slide-out -->
+  <aside id="glossaryPanel" class="glossary-panel" aria-hidden="true">
+    <div class="glossary-inner">
+      <div class="glossary-header">
+        <h2>Glossary &amp; key terms</h2>
+        <button id="closeGlossary" class="glossary-close" type="button" aria-label="Close glossary">
+          ✕
+        </button>
+      </div>
+      <p class="glossary-intro">
+        Definitions support users who find Environmental, Social or integrated E–S–Ec interpretation challenging.
+      </p>
+      <dl id="glossaryList" class="glossary-list">
+        <!-- populated via JS -->
+      </dl>
+    </div>
+  </aside>
+
+</section>
+  </main>
+
+  <!-- Footer with contextual navigation -->
+  <footer class="app-footer">
+    <div class="footer-nav" id="footer-nav">
+      <!-- Dynamic navigation buttons will be inserted here -->
+    </div>
+    <p class="footer-credit">© <span id="footerYear"></span> AI RiskNav · MSc IT Artefact · Front-end Prototype</p>
+  </footer>
+
+  <!-- Scripts -->
+ <script src="app.js"></script>
 </body>
+</html>
+    <script  src="./script.js"></script>
+
+  </body>
+  
+</html>
+    <script  src="./script.js"></script>
+
+  </body>
+  
+</html>
+    <script  src="./script.js"></script>
+
+  </body>
+  
 </html>
